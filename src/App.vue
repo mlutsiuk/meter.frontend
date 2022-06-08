@@ -1,55 +1,49 @@
 <template>
-  <v-app>
-    <v-app-bar
-        app
-        color="primary"
-        dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-            alt="Vuetify Logo"
-            class="shrink mr-2"
-            contain
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-            transition="scale-transition"
-            width="40"
-        />
+    <v-app>
+        <global-loading ref="loading"/>
 
-        <v-img
-            alt="Vuetify Name"
-            class="shrink mt-1 hidden-sm-and-down"
-            contain
-            min-width="100"
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-            width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-          href="https://github.com/vuetifyjs/vuetify/releases/latest"
-          target="_blank"
-          text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+        <transition name="page" mode="out-in">
+            <component :is="layout" v-if="layout"/>
+        </transition>
+    </v-app>
 </template>
 
 <script>
+import GlobalLoading from '@/components/GlobalLoading';
+import { layouts } from '@/layouts';
+import { defaultLayout } from '@/layouts';
 
 export default {
-  name: 'App',
+    components: { GlobalLoading },
+    el: '#app',
+    name: 'App',
 
-  data: () => ({
-    //
-  })
+    data: () => ({
+        layout: null
+    }),
+
+    metaInfo() {
+        const title = process.env.VUE_APP_NAME;
+        return {
+            title,
+            titleTemplate: `%s · ${ title }`
+        };
+    },
+    mounted() {
+        this.$loading = this.$refs.loading;
+    },
+    methods: {
+        /**
+         * Set the application layout.
+         *
+         * @param {String} layout
+         */
+        setLayout(layout) {
+            if (!layout || !layouts[layout]) {
+                layout = defaultLayout;
+            }
+            this.layout = layouts[layout];
+        }
+    }
 };
 </script>
