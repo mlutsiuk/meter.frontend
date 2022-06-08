@@ -6,7 +6,7 @@ export default {
 
     state: {
         user: null,
-        token: Cookies.get('token')
+        token: Cookies.get('token') ?? null
     },
     getters: {
         user: state => state.user,

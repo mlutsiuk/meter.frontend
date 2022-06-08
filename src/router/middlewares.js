@@ -1,9 +1,9 @@
-import auth from './middleware/auth';
-import guest from './middleware/guest';
-import role from './middleware/role';
+import { auth, checkAuth, guest, role } from './middleware';
 import router from '@/router/index';
 
-export const globalMiddleware = [];
+export const globalMiddleware = [
+    checkAuth
+];
 
 export const routeMiddleware = {
     'auth': auth,
