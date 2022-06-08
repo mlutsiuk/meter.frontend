@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .page-enter-active,
 .page-leave-active {
     transition: opacity .2s;
