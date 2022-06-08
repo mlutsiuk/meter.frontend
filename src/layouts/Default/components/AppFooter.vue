@@ -6,27 +6,31 @@
     >
         <v-card
             class="app-footer text-center"
-            color="#343a40"
             flat
             tile
             width="100%"
         >
-            <v-card-text class="mt-4">
-                Meter
+            <v-card-text>
+                <home-button/>
+                <theme-change-button/>
             </v-card-text>
 
             <v-divider></v-divider>
 
             <v-card-text>
-                © {{ firstYear }}&nbsp;<span v-if="currentYear !== firstYear">-&nbsp;{{ currentYear }}</span>
+                ©&nbsp;{{ firstYear }}<span v-if="currentYear !== firstYear">&ndash;{{ currentYear }}</span>&nbsp;&mdash;&nbsp;<strong>Meter</strong>
             </v-card-text>
         </v-card>
     </v-footer>
 </template>
 
 <script>
+import HomeButton from '@/layouts/Default/components/HomeButton';
+import ThemeChangeButton from '@/layouts/Default/components/ThemeChangeButton';
+
 export default {
     name: 'AppFooter',
+    components: { ThemeChangeButton, HomeButton },
     data: () => ({
         firstYear: 2022,
         currentYear: new Date().getFullYear()

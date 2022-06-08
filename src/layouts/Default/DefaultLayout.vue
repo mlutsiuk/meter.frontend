@@ -4,7 +4,7 @@
 
         <v-main class="app-main">
             <v-container
-                class="pa-6 white elevation-3"
+                class="pa-6 elevation-3"
                 fluid
             >
                 <layout-child ref="child"/>
@@ -32,7 +32,6 @@ export default {
 
 <style scoped>
 .main-layout {
-    background: #f8f9fa;
     min-height: 100vh;
 }
 </style>
