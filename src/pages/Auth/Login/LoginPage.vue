@@ -1,62 +1,75 @@
 <template>
-    <v-card max-width="600" class="mx-auto">
-        <v-card-title>
-            Вхід
-        </v-card-title>
-        <v-card-text class="pb-0">
-            <validation-observer
-                ref="loginForm"
-                slim
-            >
-                <validation-provider
-                    v-slot="{ errors }"
-                    name="Email"
-                    rules="required|email"
-                    slim
-                >
-                    <v-text-field
-                        v-model="email"
-                        :disabled="loading"
-                        :error-messages="errors"
-                        label="Email"
-                        placeholder="amazing@you.com"
-                        filled
-                    />
-                </validation-provider>
-
-                <validation-provider
-                    v-slot="{ errors }"
-                    name="Пароль"
-                    rules="required|min:8"
-                    slim
-                >
-                    <v-text-field
-                        v-model="password"
-                        :disabled="loading"
-                        :error-messages="errors"
-                        @click:append="showPassword = !showPassword"
-                        :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                        :type="showPassword ? 'text' : 'password'"
-                        label="Пароль"
-                        filled
-                    />
-                </validation-provider>
-            </validation-observer>
-        </v-card-text>
-        <v-card-actions class="pb-6">
-            <v-btn
-                @click="login()"
-                :loading="loading"
-                class="mx-auto"
-                color="success"
-                elevation="2"
-                min-width="200"
+    <div class="d-flex align-center flex-column">
+        <div class="d-flex flex-row mb-4">
+            <v-icon
+                class="mr-2"
                 large
             >
+                mdi-text-box-search-outline
+            </v-icon>
+
+            <h2 class="text-h2 app-title">{{ appName }}</h2>
+        </div>
+
+        <v-card max-width="600" min-width="400" class="d-flex flex-column align-center mb-15">
+            <v-card-title>
                 Вхід
-            </v-btn>
-        </v-card-actions>
-    </v-card>
+            </v-card-title>
+            <v-card-text class="pb-0">
+                <validation-observer
+                    ref="loginForm"
+                    slim
+                >
+                    <validation-provider
+                        v-slot="{ errors }"
+                        name="Email"
+                        rules="required|email"
+                        slim
+                    >
+                        <v-text-field
+                            v-model="email"
+                            :disabled="loading"
+                            :error-messages="errors"
+                            label="Email"
+                            placeholder="amazing@you.com"
+                            filled
+                        />
+                    </validation-provider>
+
+                    <validation-provider
+                        v-slot="{ errors }"
+                        name="Пароль"
+                        rules="required|min:8"
+                        slim
+                    >
+                        <v-text-field
+                            v-model="password"
+                            :disabled="loading"
+                            :error-messages="errors"
+                            @click:append="showPassword = !showPassword"
+                            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                            :type="showPassword ? 'text' : 'password'"
+                            label="Пароль"
+                            filled
+                        />
+                    </validation-provider>
+                </validation-observer>
+            </v-card-text>
+            <v-card-actions class="pb-6">
+                <v-btn
+                    @click="login()"
+                    :loading="loading"
+                    color="success"
+                    elevation="2"
+                    min-width="200"
+                    large
+                >
+                    Вхід
+                </v-btn>
+            </v-card-actions>
+        </v-card>
+    </div>
+
 </template>
 
 <script>
@@ -69,10 +82,17 @@ export default {
     components: {
         ValidationObserver,
         ValidationProvider
-
     },
 
+    layout: 'clear',
+    middleware: 'guest',
+    metaInfo: () => ({
+        title: 'Вхід'
+    }),
+
     data: () => ({
+        appName: process.env.VUE_APP_NAME,
+
         email: '',
         password: '',
 
@@ -91,7 +111,7 @@ export default {
             let token;
 
             try {
-                const response  = await axios.post('/auth/login', {
+                const response = await axios.post('/auth/login', {
                     email: this.email,
                     password: this.password
                 });
@@ -121,3 +141,9 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.app-title {
+    font-family: Nunito, sans-serif !important;
+}
+</style>
