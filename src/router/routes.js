@@ -1,4 +1,5 @@
 import {
+    HomePage,
     LoginPage,
     NonImplemented,
     NotFoundPage
@@ -8,7 +9,7 @@ export default [
     {
         path: '/',
         name: 'home',
-        component: NonImplemented
+        component: HomePage
     },
     {
         path: '/login',
@@ -20,23 +21,26 @@ export default [
     //     name: 'register',
     //     component: NonImplemented
     // },
-    // {
-    //     path: '/groups',
-    //     name: 'groups.index',
-    //     component: NonImplemented,
-    //     children: [
-    //         {
-    //             path: '/:id',
-    //             name: 'groups.show',
-    //             component: NonImplemented
-    //         },
-    //         {
-    //             path: '/:id/edit',
-    //             name: 'groups.edit',
-    //             component: NonImplemented
-    //         }
-    //     ],
-    // },
+    {
+        path: '/groups',
+        name: 'groups.index',
+        component: NonImplemented
+    },
+    {
+        path: '/groups/create',
+        name: 'groups.create',
+        component: NonImplemented
+    },
+    {
+        path: '/groups/:id',
+        name: 'groups.show',
+        component: NonImplemented
+    },
+    {
+        path: '/groups/:id/edit',
+        name: 'groups.edit',
+        component: NonImplemented
+    },
     //
     // {
     //     path: '/counters',
