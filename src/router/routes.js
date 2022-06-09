@@ -17,22 +17,22 @@ export default [
         component: HomePage,
         children: [
             {
-                path: '/groups',
+                path: 'groups',
                 name: 'groups.index',
                 component: NonImplemented
             },
             {
-                path: '/groups/create',
+                path: 'groups/create',
                 name: 'groups.create',
                 component: NonImplemented
             },
             {
-                path: '/groups/:id',
+                path: 'groups/:id',
                 name: 'groups.show',
                 component: NonImplemented
             },
             {
-                path: '/groups/:id/edit',
+                path: 'groups/:id/edit',
                 name: 'groups.edit',
                 component: NonImplemented
             }
