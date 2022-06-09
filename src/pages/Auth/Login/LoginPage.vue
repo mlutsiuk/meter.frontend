@@ -77,6 +77,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
 import axios from '@/plugins/axios';
 import Cookies from 'js-cookie';
 
+// TODO: Set mdi-file-document-multiple icon as favicon
 export default {
     name: 'LoginPage',
     components: {
@@ -117,7 +118,7 @@ export default {
                 });
                 token = response.token;
             } catch (e) {
-                this.loading = false;    // TODO: Show error message
+                this.loading = false;    // TODO: Show snackbar with error message
                 return;
             }
 

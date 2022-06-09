@@ -3,9 +3,9 @@ import Cookies from 'js-cookie';
 
 export default async(to, from, next) => {
     if(!store.getters['auth/check']) {
-        Cookies.set('intended_url', to.path);    //TODO
+        Cookies.set('intended_url', to.path);
 
-        next({ name: 'login' });    //TODO
+        next({ name: 'login' });    //TODO: Show snackbar with error message
     } else {
         next();
     }
