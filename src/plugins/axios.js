@@ -1,5 +1,6 @@
 import axios from 'axios';
 import store from '@/store';
+import router from '@/router';
 
 const axiosInstance = axios.create({
     baseURL: process.env.VUE_APP_API_BASE_URL,
@@ -25,7 +26,7 @@ axiosInstance.interceptors.response.use(response => response, async error => {
     if (status === 401 && store.getters['auth/check']) {
         await store.dispatch('auth/logout');
 
-        // TODO: router.push({ name: 'login' });
+        await router.push({ name: 'login' });
     }
 });
 

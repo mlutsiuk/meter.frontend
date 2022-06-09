@@ -15,7 +15,7 @@ export default (to, from, next, roles) => {
 
     // Check if the user has one of the required roles...
     if(!roles.includes(user.role.name)) {
-        next('/');    //TODO
+        next('/');    //TODO: Show message
     }
 
     next();

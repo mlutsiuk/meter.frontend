@@ -4,7 +4,7 @@
 
         <v-main class="app-main">
             <v-container
-                class="pa-6 elevation-3"
+                class="pa-6"
                 fluid
             >
                 <layout-child ref="child"/>
@@ -25,7 +25,7 @@ export default {
     components: {
         LayoutChild,
         AppToolbar,
-        AppFooter,
+        AppFooter
     }
 };
 </script>
