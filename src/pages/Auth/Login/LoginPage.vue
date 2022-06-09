@@ -5,7 +5,7 @@
                 class="mr-2"
                 large
             >
-                mdi-text-box-search-outline
+                mdi-file-document-multiple
             </v-icon>
 
             <h2 class="text-h2 app-title">{{ appName }}</h2>

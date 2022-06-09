@@ -1,9 +1,15 @@
 <template>
     <v-toolbar>
-        <v-icon large class="mr-8">
-            mdi-text-box-search-outline
-        </v-icon>
-        <v-toolbar-title class="app-toolbar-title">{{ appName }}</v-toolbar-title>
+        <v-btn
+            @click="$router.push({ name: 'home' })"
+            class="ml-1"
+            icon
+        >
+            <v-icon>
+                mdi-file-document-multiple
+            </v-icon>
+        </v-btn>
+        <v-toolbar-title class="app-toolbar-title ml-n2">{{ appName }}</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon>
             <v-icon>mdi-magnify</v-icon>
