@@ -1,6 +1,6 @@
 <template>
     <v-container class="text-center">
-        <h1 class="text-h1">404</h1>
+        <h1 id="error-page-caption" class="text-h1">404</h1>
         <div class="text--secondary text-subtitle-1">Сторінку не знайдено. Халепа!</div>
 
         <v-btn
@@ -21,3 +21,9 @@ export default {
     name: 'NotFoundPage'
 };
 </script>
+
+<style scoped>
+#error-page-caption {
+    font-family: Nunito, sans-serif !important;
+}
+</style>
