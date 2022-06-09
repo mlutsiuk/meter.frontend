@@ -1,11 +1,11 @@
 <template>
     <div class="clear-layout d-flex flex-column align-center justify-center">
-        <layout-child ref="child"/>
+        <layout-child/>
     </div>
 </template>
 
 <script>
-import LayoutChild from '@/layouts/LayoutChild';
+import LayoutChild from '@/layouts/components/LayoutChild';
 
 export default {
     name: 'ClearLayout',

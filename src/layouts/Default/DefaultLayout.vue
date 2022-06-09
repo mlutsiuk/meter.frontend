@@ -2,8 +2,8 @@
     <div class="default-layout">
         <app-toolbar/>
 
-        <v-main class="app-main">
-            <layout-child ref="child"/>
+        <v-main>
+            <layout-child/>
         </v-main>
 
 <!--        <app-footer/>-->
@@ -13,7 +13,7 @@
 <script>
 // import AppFooter from './components/AppFooter';
 import AppToolbar from './components/AppToolbar';
-import LayoutChild from '@/layouts/LayoutChild';
+import LayoutChild from '@/layouts/components/LayoutChild';
 
 export default {
     name: 'DefaultLayout',

@@ -1,7 +1,7 @@
 <template>
     <transition name="page" mode="out-in">
         <slot>
-            <router-view ref="routerView"/>
+            <router-view/>
         </slot>
     </transition>
 </template>
@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .page-enter-active,
 .page-leave-active {
     transition: opacity .2s;
