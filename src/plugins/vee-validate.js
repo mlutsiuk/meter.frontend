@@ -18,7 +18,7 @@ extend('required', {
 
 extend('email', {
     ...email,
-    message: 'Неправильний email'
+    message: 'Неправильний формат'
 });
 
 extend('max', {
