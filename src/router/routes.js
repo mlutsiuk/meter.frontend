@@ -7,40 +7,42 @@ import {
 
 export default [
     {
-        path: '/',
-        name: 'home',
-        component: HomePage
-    },
-    {
         path: '/login',
         name: 'login',
         component: LoginPage
+    },
+    {
+        path: '/',
+        name: 'home',
+        component: HomePage,
+        children: [
+            {
+                path: '/groups',
+                name: 'groups.index',
+                component: NonImplemented
+            },
+            {
+                path: '/groups/create',
+                name: 'groups.create',
+                component: NonImplemented
+            },
+            {
+                path: '/groups/:id',
+                name: 'groups.show',
+                component: NonImplemented
+            },
+            {
+                path: '/groups/:id/edit',
+                name: 'groups.edit',
+                component: NonImplemented
+            }
+        ]
     },
     // {
     //     path: '/register',
     //     name: 'register',
     //     component: NonImplemented
     // },
-    {
-        path: '/groups',
-        name: 'groups.index',
-        component: NonImplemented
-    },
-    {
-        path: '/groups/create',
-        name: 'groups.create',
-        component: NonImplemented
-    },
-    {
-        path: '/groups/:id',
-        name: 'groups.show',
-        component: NonImplemented
-    },
-    {
-        path: '/groups/:id/edit',
-        name: 'groups.edit',
-        component: NonImplemented
-    },
     //
     // {
     //     path: '/counters',

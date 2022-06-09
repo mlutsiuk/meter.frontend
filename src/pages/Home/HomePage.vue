@@ -1,167 +1,41 @@
 <template>
     <v-container fluid>
         <v-row>
-            <v-col cols="4" class="navigation-tree themed-scrollbar">
-                <v-skeleton-loader
-                    :loading="loading"
-                    class="mx-auto"
-                    type="list-item@7"
-                >
-                    <v-treeview
-                        :items="navigationTree"
-                        transition
-                        dense
-                        hoverable
-                        item-text="title"
-                    >
-                        <template #prepend="{ item }">
-                            <v-icon v-if="item.iconCode">
-                                {{ item.iconCode }}
-                            </v-icon>
-                        </template>
-                    </v-treeview>
-                </v-skeleton-loader>
+            <v-col
+                cols="3"
+                class="scrollable-container themed-scrollbar"
+            >
+                <navigation-tree/>
             </v-col>
 
             <v-divider vertical/>
 
-
+            <v-col
+                cols="9"
+                class="scrollable-container themed-scrollbar"
+            >
+                <page-child/>
+            </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
+import NavigationTree from './components/NavigationTree';
+import PageChild from '@/pages/components/PageChild';
+
 export default {
     name: 'HomePage',
-
+    components: { PageChild, NavigationTree },
     // middleware: 'auth',
-    metaInfo() {
-        return { title: 'Головна' };
-    },
-    data: () => ({
-        loading: false,
-        navigationTree: [
-            {
-                title: '1 Травня, 15'
-            },
-            {
-                title: 'Село'
-            },
-            {
-                title: 'Острог',
-                children: [
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    }
-                ]
-            },
-            {
-                title: 'Острог',
-                children: [
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    },
-                    {
-                        title: 'Газ',
-                        iconCode: 'mdi-fire'
-                    },
-                    {
-                        title: 'Вода',
-                        iconCode: 'mdi-water'
-                    }
-                ]
-            }
-
-        ],
-        active: []
+    metaInfo: () => ({
+        title: 'Головна'
     })
 };
 </script>
 
-<style lang="scss">
-.navigation-tree {
+<style scoped>
+.scrollable-container {
     overflow-y: scroll;
     height: calc(100vh - 64px);
 }
