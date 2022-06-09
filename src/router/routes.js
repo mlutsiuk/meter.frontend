@@ -1,6 +1,7 @@
 import {
+    LoginPage,
     NonImplemented,
-    NotFound
+    NotFoundPage
 } from '@/pages';
 
 export default [
@@ -9,11 +10,11 @@ export default [
         name: 'home',
         component: NonImplemented
     },
-    // {
-    //     path: '/login',
-    //     name: 'login',
-    //     component: NonImplemented
-    // },
+    {
+        path: '/login',
+        name: 'login',
+        component: LoginPage
+    },
     // {
     //     path: '/register',
     //     name: 'register',
@@ -58,6 +59,6 @@ export default [
     {
         path: '*',
         name: 'error.not-found',
-        component: NotFound
+        component: NotFoundPage
     }
 ];
