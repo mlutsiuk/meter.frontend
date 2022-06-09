@@ -105,6 +105,8 @@ export default {
             await this.$store.dispatch('auth/fetchUser');
 
             this.loading = false;
+
+            this.redirectAfterLogin();
         },
         redirectAfterLogin() {
             const intendedUrl = Cookies.get('intended_url');
