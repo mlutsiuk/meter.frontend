@@ -1,4 +1,5 @@
 import {
+    DashboardPage,
     HomePage,
     LoginPage,
     NonImplemented,
@@ -16,6 +17,11 @@ export default [
         name: 'home',
         component: HomePage,
         children: [
+            {
+                path: '',
+                name: 'dashboard',
+                component: DashboardPage
+            },
             {
                 path: 'groups',
                 name: 'groups.index',
