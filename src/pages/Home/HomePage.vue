@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import NavigationTree from './components/NavigationTree';
+import NavigationTree from './components/NavigationTree/NavigationTree';
 import PageChild from '@/pages/components/PageChild';
 
 export default {
