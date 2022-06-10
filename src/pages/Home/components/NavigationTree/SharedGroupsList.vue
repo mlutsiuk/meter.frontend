@@ -102,7 +102,7 @@ export default {
                 ]
             },
             {
-                id: 11,
+                id: 12,
                 title: 'Квартира',
                 counters: [
                     {
