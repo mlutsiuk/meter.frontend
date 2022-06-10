@@ -1,23 +1,21 @@
 <template>
-    <v-container fluid>
-        <v-row>
-            <v-col
-                cols="3"
-                class="scrollable-container themed-scrollbar"
-            >
-                <navigation-tree/>
-            </v-col>
+    <v-row class="pa-3">
+        <v-col
+            cols="3"
+            class="scrollable-container themed-scrollbar align-stretch"
+        >
+            <navigation-tree/>
+        </v-col>
 
-            <v-divider vertical/>
+        <v-divider vertical/>
 
-            <v-col
-                cols="9"
-                class="scrollable-container themed-scrollbar"
-            >
-                <page-child/>
-            </v-col>
-        </v-row>
-    </v-container>
+        <v-col
+            cols="9"
+            class="scrollable-container themed-scrollbar align-stretch"
+        >
+            <page-child/>
+        </v-col>
+    </v-row>
 </template>
 
 <script>
