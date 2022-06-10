@@ -18,6 +18,7 @@
             <template #activator>
                 <v-list-item-content>
                     <v-list-item-title v-text="group.title"/>
+                    <v-list-item-subtitle v-text="`@${group.ownerName}`"/>
                 </v-list-item-content>
             </template>
 
@@ -48,6 +49,7 @@ export default {
             {
                 id: 10,
                 title: 'Село',
+                ownerName: 'mlutsiuk',
                 counters: [
                     {
                         id: 4,
@@ -76,6 +78,7 @@ export default {
             {
                 id: 11,
                 title: 'Місто',
+                ownerName: 'AnechkaR',
                 counters: [
                     {
                         id: 21,
@@ -104,6 +107,7 @@ export default {
             {
                 id: 12,
                 title: 'Квартира',
+                ownerName: 'VanDeMiron',
                 counters: [
                     {
                         id: 21,
