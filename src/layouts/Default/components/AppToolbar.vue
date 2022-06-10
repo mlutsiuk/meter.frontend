@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar>
+    <v-toolbar style="z-index: 1" elevation="3">
         <v-btn
             @click="$router.push({ name: 'home' })"
             class="ml-1"
