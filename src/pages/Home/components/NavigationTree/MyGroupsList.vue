@@ -42,7 +42,8 @@
 </template>
 
 <script>
-import GroupCreateButton from '@/pages/Home/components/NavigationTree/GroupCreateButton';
+import GroupCreateButton from './GroupCreateButton';
+
 export default {
     name: 'MyGroupsList',
     components: { GroupCreateButton },

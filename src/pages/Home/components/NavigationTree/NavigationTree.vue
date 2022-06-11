@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import MyGroupsList from '@/pages/Home/components/NavigationTree/MyGroupsList';
-import SharedGroupsList from '@/pages/Home/components/NavigationTree/SharedGroupsList';
+import MyGroupsList from './MyGroupsList';
+import SharedGroupsList from './SharedGroupsList';
 
 export default {
     name: 'NavigationTree',
