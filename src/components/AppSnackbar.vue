@@ -3,7 +3,7 @@
         v-model="snackbar.active"
         :color="snackbar.color"
         :timeout="-1"
-        class="pb-0"
+        class="pb-1"
         outlined
     >
         {{ snackbar.text }}
