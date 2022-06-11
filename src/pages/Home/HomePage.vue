@@ -11,7 +11,7 @@
 
         <v-col
             cols="9"
-            class="scrollable-container themed-scrollbar align-stretch"
+            class="scrollable-container themed-scrollbar d-flex align-stretch"
         >
             <page-child/>
         </v-col>
@@ -24,8 +24,11 @@ import PageChild from '@/pages/components/PageChild';
 
 export default {
     name: 'HomePage',
-    components: { PageChild, NavigationTree },
-    // middleware: 'auth',
+    components: {
+        PageChild,
+        NavigationTree
+    },
+    middleware: 'auth',
     metaInfo: () => ({
         title: 'Головна'
     })

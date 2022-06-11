@@ -40,7 +40,13 @@ export default [
                 path: 'groups/:id/edit',
                 name: 'groups.edit',
                 component: NonImplemented
-            }
+            },
+
+            {
+                path: 'groups/:id/counters/create',
+                name: 'counters.create',
+                component: NonImplemented
+            },
         ]
     },
 

@@ -1,19 +1,33 @@
 <template>
-    <v-container fluid class="pt-0">
+    <v-container
+        @contextmenu.prevent="$refs.contextmenu.show"
+        class="pt-0"
+        fluid
+    >
         <group-card
             v-for="group in groups"
             :key="group.id"
             :group="group"
         />
+
+        <context-menu ref="contextmenu">
+            <v-list dense>
+                <v-list-item @click="$router.push({ name: 'groups.create' })">
+                    <v-list-item-title>Створити групу</v-list-item-title>
+                </v-list-item>
+            </v-list>
+        </context-menu>
     </v-container>
 </template>
 
 <script>
-import GroupCard from '@/pages/Home/Dashboard/components/GroupCard';
+import GroupCard from './components/GroupCard';
+import ContextMenu from '@/components/ContextMenu';
 
 export default {
     name: 'DashboardPage',
     components: {
+        ContextMenu,
         GroupCard
     },
     data: () => ({

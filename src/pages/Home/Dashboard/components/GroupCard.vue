@@ -1,5 +1,6 @@
 <template>
     <v-card
+        @contextmenu.prevent="$refs.contextmenu.show"
         class="mb-4"
         outlined
     >
@@ -14,15 +15,25 @@
                 :title="counter.title"
             />
         </v-card-text>
+
+        <context-menu ref="contextmenu">
+            <v-list dense>
+                <v-list-item @click="$router.push({ name: 'counters.create', params: { id: group.id } })">
+                    <v-list-item-title>Додати лічильник</v-list-item-title>
+                </v-list-item>
+            </v-list>
+        </context-menu>
     </v-card>
 </template>
 
 <script>
 import CountersGridCell from './CountersGridCell';
+import ContextMenu from '@/components/ContextMenu';
 
 export default {
     name: 'GroupCard',
     components: {
+        ContextMenu,
         CountersGridCell
     },
     props: {
