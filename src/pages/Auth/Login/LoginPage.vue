@@ -27,6 +27,7 @@
                         slim
                     >
                         <v-text-field
+                            @keydown.enter="$refs.passwordInput.focus()"
                             v-model="email"
                             :disabled="loading"
                             :error-messages="errors"
@@ -43,6 +44,8 @@
                         slim
                     >
                         <v-text-field
+                            ref="passwordInput"
+                            @keydown.enter="login()"
                             v-model="password"
                             :disabled="loading"
                             :error-messages="errors"
