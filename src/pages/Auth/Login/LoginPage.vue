@@ -119,7 +119,7 @@ export default {
                     email: this.email,
                     password: this.password
                 });
-                token = response.access_token;
+                token = response.data.access_token;
             } catch (e) {
                 this.loading = false;
 
