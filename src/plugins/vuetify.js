@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
 import uk from 'vuetify/lib/locale/uk';
+import colors from 'vuetify/lib/util/colors';
 
 Vue.use(Vuetify);
 
@@ -20,6 +21,9 @@ export default new Vuetify({
                 info: '#2196F3',
                 success: '#4CAF50',
                 warning: '#FFC107'
+            },
+            dark: {
+                secondary: colors.grey.lighten1
             }
         }
     },
