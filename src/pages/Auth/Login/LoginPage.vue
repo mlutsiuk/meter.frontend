@@ -118,7 +118,13 @@ export default {
                 });
                 token = response.token;
             } catch (e) {
-                this.loading = false;    // TODO: Show snackbar with error message
+                this.loading = false;
+
+                this.$store.commit('message/push', {
+                    text: 'Не вдалося увійти, спробуйте ще раз.',
+                    color: 'error'
+                });
+
                 return;
             }
 
