@@ -10,12 +10,14 @@ export default {
     },
     getters: {
         user: state => state.user,
+        avatar: state => state.user?.avatar,
+        name: state => state.user?.name,
 
         token: state => state.token,
 
         check: state => state.user !== null,
 
-        roleName: state => state.user?.role.name,
+        roleName: state => state.user?.role?.name,
         isAdmin: (state, getters) => getters.roleName === 'admin'
     },
     mutations: {

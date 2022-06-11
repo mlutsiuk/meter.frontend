@@ -18,15 +18,19 @@
             <v-icon>mdi-heart</v-icon>
         </v-btn>
         <theme-change-button/>
+
+        <user-avatar/>
     </v-toolbar>
 </template>
 
 <script>
 import ThemeChangeButton from '@/layouts/Default/components/ThemeChangeButton';
+import UserAvatar from '@/layouts/Default/components/UserAvatar';
 
 export default {
     name: 'AppToolbar',
     components: {
+        UserAvatar,
         ThemeChangeButton
     },
     data: () => ({
