@@ -14,7 +14,6 @@ export default [
     },
     {
         path: '/',
-        name: 'home',
         component: HomePage,
         children: [
             {
