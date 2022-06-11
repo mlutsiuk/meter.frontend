@@ -20,7 +20,7 @@
         <v-simple-table class="mt-1">
             <thead>
             <tr>
-                <th class="text-left">parentName</th>
+                <th class="text-left">parentComponent</th>
                 <th class="text-left">name</th>
                 <th class="text-left">path</th>
                 <th class="text-left">component</th>
@@ -32,7 +32,7 @@
                 v-for="route in routes"
                 :key="route.name"
             >
-                <td>{{ route.parentName }}</td>
+                <td>{{ route.parentComponent }}</td>
                 <td
                     :class="{...routeNameClasses(route.name)}"
                 >
@@ -79,10 +79,10 @@ export default {
         }
     },
     created() {
-        let parseRoutes = (routes, parentName) => {
+        let parseRoutes = (routes, parentComponent) => {
             routes.forEach(route => {
                 this.routes.push({
-                    parentName,
+                    parentComponent,
 
                     name: route.name,
                     path: route.path,
@@ -91,7 +91,7 @@ export default {
                 });
 
                 if ((route.children?.length ?? 0) > 0) {
-                    parseRoutes(route.children, route.name);
+                    parseRoutes(route.children, route.component.name);
                 }
             });
         };

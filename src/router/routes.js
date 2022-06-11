@@ -47,7 +47,6 @@ export default [
 
     {
         path: '/development',
-        name: 'development',
         component: DevelopmentPage,
         children: [
             {

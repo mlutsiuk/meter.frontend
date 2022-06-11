@@ -1,7 +1,7 @@
 <template>
     <v-toolbar style="z-index: 1" elevation="3">
         <v-btn
-            @click="$router.push({ name: 'home' })"
+            @click="$router.push({ name: 'dashboard' })"
             class="ml-1"
             icon
         >

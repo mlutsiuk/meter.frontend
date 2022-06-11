@@ -5,7 +5,7 @@
             <div class="text--secondary text-subtitle-1">Сторінку не знайдено. Халепа!</div>
 
             <v-btn
-                @click="$router.push({ name: 'home' })"
+                @click="$router.push({ name: 'dashboard' })"
                 class="mt-6"
                 color="accent"
                 elevation="2"
