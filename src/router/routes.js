@@ -1,9 +1,9 @@
 import {
-    DashboardPage,
+    DashboardPage, DevelopmentPage,
     HomePage,
     LoginPage,
     NonImplemented,
-    NotFoundPage
+    NotFoundPage, SnackbarMessagesPage
 } from '@/pages';
 
 export default [
@@ -44,29 +44,24 @@ export default [
             }
         ]
     },
-    // {
-    //     path: '/register',
-    //     name: 'register',
-    //     component: NonImplemented
-    // },
-    //
-    // {
-    //     path: '/counters',
-    //     name: 'counters.index',
-    //     component: NonImplemented,
-    //     children: [
-    //         {
-    //             path: '/:id',
-    //             name: 'counters.show',
-    //             component: NonImplemented
-    //         },
-    //         {
-    //             path: '/:id/edit',
-    //             name: 'counters.edit',
-    //             component: NonImplemented
-    //         }
-    //     ],
-    // },
+
+    {
+        path: '/development',
+        name: 'development',
+        component: DevelopmentPage,
+        children: [
+            {
+                path: '',
+                name: 'development',
+                component: NonImplemented
+            },
+            {
+                path: 'snackbar-messages',
+                name: 'development.snackbar-messages',
+                component: SnackbarMessagesPage
+            }
+        ]
+    },
 
     {
         path: '*',
