@@ -5,16 +5,18 @@
         <transition name="page" mode="out-in">
             <component :is="layout" v-if="layout"/>
         </transition>
+
+        <app-snackbar/>
     </v-app>
 </template>
 
 <script>
+import AppSnackbar from '@/components/AppSnackbar';
 import GlobalLoading from '@/components/GlobalLoading';
-import { layouts } from '@/layouts';
-import { defaultLayout } from '@/layouts';
+import { defaultLayout, layouts } from '@/layouts';
 
 export default {
-    components: { GlobalLoading },
+    components: { AppSnackbar, GlobalLoading },
     el: '#app',
     name: 'App',
 
