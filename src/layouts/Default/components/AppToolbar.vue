@@ -19,18 +19,18 @@
         </v-btn>
         <theme-change-button/>
 
-        <user-avatar/>
+        <user-avatar-menu/>
     </v-toolbar>
 </template>
 
 <script>
-import ThemeChangeButton from '@/layouts/Default/components/ThemeChangeButton';
-import UserAvatar from '@/layouts/Default/components/UserAvatar';
+import ThemeChangeButton from './ThemeChangeButton';
+import UserAvatarMenu from './UserAvatarMenu';
 
 export default {
     name: 'AppToolbar',
     components: {
-        UserAvatar,
+        UserAvatarMenu,
         ThemeChangeButton
     },
     data: () => ({

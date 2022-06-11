@@ -1,5 +1,8 @@
 <template>
-    <v-btn icon class="mr-3">
+    <v-btn
+        class="mr-3"
+        icon
+    >
         <v-avatar v-if="$store.getters['auth/avatar']" size="40">
             <img :src="$store.getters['auth/avatar']" :alt="$store.getters['auth/name']">
         </v-avatar>
