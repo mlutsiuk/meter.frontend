@@ -22,11 +22,6 @@ export default [
                 component: DashboardPage
             },
             {
-                path: 'groups',
-                name: 'groups.index',
-                component: NonImplemented
-            },
-            {
                 path: 'groups/create',
                 name: 'groups.create',
                 component: NonImplemented
