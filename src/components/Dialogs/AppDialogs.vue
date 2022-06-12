@@ -9,8 +9,8 @@
 
 <script>
 import CounterDeleteDialog from './CounterDeleteDialog';
-import GroupDeleteDialog from '@/components/Dialogs/GroupDeleteDialog';
-import GroupCreateDialog from '@/components/Dialogs/GroupCreateDialog';
+import GroupDeleteDialog from './GroupDeleteDialog';
+import GroupCreateDialog from './GroupCreateDialog';
 
 export default {
     name: 'AppDialogs',

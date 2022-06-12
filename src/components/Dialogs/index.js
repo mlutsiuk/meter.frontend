@@ -1,6 +1,7 @@
 import emitter from '@/plugins/emitter';
 import {
-    DIALOG_SHOW_COUNTER_DELETE, DIALOG_SHOW_GROUP_CREATE,
+    DIALOG_SHOW_COUNTER_DELETE,
+    DIALOG_SHOW_GROUP_CREATE,
     DIALOG_SHOW_GROUP_DELETE
 } from './events';
 
