@@ -1,5 +1,6 @@
 import emitter from '@/plugins/emitter';
 import {
+    DIALOG_SHOW_COUNTER_CREATE,
     DIALOG_SHOW_COUNTER_DELETE,
     DIALOG_SHOW_GROUP_CREATE,
     DIALOG_SHOW_GROUP_DELETE,
@@ -18,6 +19,21 @@ const showDialog = (event, payload, onConfirm, onReject) => {
         onConfirm,
         onReject
     });
+}
+
+/**
+ * @param {Object} payload - Payload to send to dialog component
+ * @param {number} payload.groupId - Counter group id
+ * @param {function} [onConfirm] - Callback to run after dialog confirm
+ * @param {function} [onReject] - Callback to run after dialog reject
+ */
+export const showCounterCreateDialog = (payload, onConfirm, onReject) => {
+    showDialog(
+        DIALOG_SHOW_COUNTER_CREATE,
+        payload,
+        onConfirm,
+        onReject
+    );
 }
 
 /**

@@ -19,7 +19,7 @@
         </v-card-text>
 
         <context-menu ref="contextmenu">
-            <context-menu-item icon="mdi-plus" :route="{ name: 'groups.counters.create', params: { groupId: group.id } }">
+            <context-menu-item icon="mdi-plus" @click="showCounterCreateDialog()">
                 Додати лічильник
             </context-menu-item>
             <context-menu-item icon="mdi-playlist-edit" @click="showGroupEditDialog()">
@@ -42,7 +42,7 @@
 import CountersGridCell from './CountersGridCell';
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
-import { showGroupDeleteDialog, showGroupEditDialog } from '@/components/Dialogs';
+import { showCounterCreateDialog, showGroupDeleteDialog, showGroupEditDialog } from '@/components/Dialogs';
 
 export default {
     name: 'GroupCard',
@@ -58,6 +58,11 @@ export default {
         }
     },
     methods: {
+        showCounterCreateDialog() {
+            showCounterCreateDialog({
+                groupId: this.group.id
+            });
+        },
         showGroupDeleteDialog() {
             showGroupDeleteDialog({
                 groupId: this.group.id
