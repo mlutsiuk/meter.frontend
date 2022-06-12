@@ -6,13 +6,17 @@
         absolute
         offset-y
     >
-        <div @contextmenu.prevent="() => {}">
+        <v-list
+            @contextmenu.prevent="() => {}"
+            class="context-menu-list"
+            dense
+        >
             <slot>
                 <v-list dense>
                     <v-list-item/>
                 </v-list>
             </slot>
-        </div>
+        </v-list>
     </v-menu>
 </template>
 
@@ -51,3 +55,9 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.context-menu-list {
+    min-width: 200px;
+}
+</style>
