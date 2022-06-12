@@ -19,7 +19,7 @@
             <context-menu-item :route="{ name: 'counters.show', params: { counterId: counterId } }">
                 Відкрити
             </context-menu-item>
-            <context-menu-item icon="mdi-playlist-edit" :route="{ name: 'counters.edit', params: { counterId: counterId }  }">
+            <context-menu-item icon="mdi-playlist-edit" @click="showCounterEditDialog()">
                 Редагувати
             </context-menu-item>
             <context-menu-item icon="mdi-chart-bar" :route="{ name: 'counters.charts', params: { counterId: counterId } }">
@@ -44,7 +44,7 @@
 <script>
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
-import { showCounterDeleteDialog } from '@/components/Dialogs';
+import { showCounterDeleteDialog, showCounterEditDialog } from '@/components/Dialogs';
 
 export default {
     name: 'CountersGridCell',
@@ -79,6 +79,9 @@ export default {
         },
         showCounterDeleteDialog() {
             showCounterDeleteDialog({ counterId: this.counterId });
+        },
+        showCounterEditDialog() {
+            showCounterEditDialog({ counterId: this.counterId });
         }
     }
 };
