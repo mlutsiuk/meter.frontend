@@ -34,7 +34,7 @@
             <v-divider/>
 
             <!-- TODO: Show dialog menu -->
-            <context-menu-item icon="mdi-trash-can-outline" @click="nonImplemented()">
+            <context-menu-item icon="mdi-trash-can-outline" @click="showCounterDeleteDialog()">
                 Видалити
             </context-menu-item>
         </context-menu>
@@ -44,6 +44,7 @@
 <script>
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
+import { showCounterDeleteDialog } from '@/components/Dialogs';
 
 export default {
     name: 'CountersGridCell',
@@ -74,6 +75,14 @@ export default {
             this.$store.commit('message/push', {
                 text: 'Наразі це не реалізовано',
                 color: 'accent'
+            });
+        },
+        showCounterDeleteDialog() {
+            showCounterDeleteDialog({ counterId: this.counterId }, () => {
+                this.$store.commit('message/push', {
+                    text: 'Видалено з компонента',
+                    color: 'success'
+                });
             });
         }
     }
