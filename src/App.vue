@@ -7,6 +7,7 @@
         </transition>
 
         <app-snackbar/>
+        <app-dialogs/>
     </v-app>
 </template>
 
@@ -14,9 +15,10 @@
 import AppSnackbar from '@/components/AppSnackbar';
 import GlobalLoading from '@/components/GlobalLoading';
 import { defaultLayout, layouts } from '@/layouts';
+import AppDialogs from '@/components/Dialogs/AppDialogs';
 
 export default {
-    components: { AppSnackbar, GlobalLoading },
+    components: { AppDialogs, AppSnackbar, GlobalLoading },
     el: '#app',
     name: 'App',
 
