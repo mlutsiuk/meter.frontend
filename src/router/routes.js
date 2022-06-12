@@ -36,12 +36,7 @@ export default [
                 path: 'counters/:counterId/charts',
                 name: 'counters.charts',
                 component: NonImplemented
-            },
-            {
-                path: 'counters/:counterId/edit',
-                name: 'counters.edit',
-                component: NonImplemented
-            },
+            }
         ]
     },
 

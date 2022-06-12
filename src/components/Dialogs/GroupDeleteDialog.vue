@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { DIALOG_SHOW_GROUP_DELETE } from '.`/events';
+import { DIALOG_SHOW_GROUP_DELETE } from './events';
 import dialogMixin from './dialogMixin';
 
 export default {
