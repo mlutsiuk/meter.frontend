@@ -16,22 +16,25 @@
         </v-card-text>
 
         <context-menu ref="contextmenu">
-            <context-menu-item :route="{ name: 'groups.create' }">
+            <context-menu-item :route="{ name: 'counters.show', params: { counterId: counterId } }">
                 Відкрити
             </context-menu-item>
-            <context-menu-item icon="mdi-playlist-edit" :route="{ name: 'groups.create' }">
+            <context-menu-item icon="mdi-playlist-edit" :route="{ name: 'counters.edit', params: { counterId: counterId }  }">
                 Редагувати
             </context-menu-item>
-            <context-menu-item icon="mdi-chart-bar" :route="{ name: 'groups.create' }">
+            <context-menu-item icon="mdi-chart-bar" :route="{ name: 'counters.charts', params: { counterId: counterId } }">
                 Графіки
             </context-menu-item>
-            <context-menu-item icon="mdi-format-color-text" :route="{ name: 'groups.create' }">
+
+            <!-- TODO: Show dialog menu -->
+            <context-menu-item icon="mdi-format-color-text" @click="nonImplemented()">
                 Вигляд
             </context-menu-item>
 
             <v-divider/>
 
-            <context-menu-item icon="mdi-trash-can-outline" :route="{ name: 'groups.create' }">
+            <!-- TODO: Show dialog menu -->
+            <context-menu-item icon="mdi-trash-can-outline" @click="nonImplemented()">
                 Видалити
             </context-menu-item>
         </context-menu>
@@ -49,6 +52,10 @@ export default {
         ContextMenu
     },
     props: {
+        counterId: {
+            type: Number,
+            required: true
+        },
         color: {
             default: null,
             type: String
@@ -60,6 +67,14 @@ export default {
         title: {
             required: true,
             type: String
+        }
+    },
+    methods: {
+        nonImplemented() {
+            this.$store.commit('message/push', {
+                text: 'Наразі це не реалізовано',
+                color: 'accent'
+            });
         }
     }
 };

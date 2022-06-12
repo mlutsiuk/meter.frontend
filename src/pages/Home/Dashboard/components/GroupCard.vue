@@ -8,9 +8,10 @@
 
         <v-card-text class="counters-grid">
             <counters-grid-cell
-                @dblclick.native="$router.push({ name: 'counters.show', params: { id: counter.id } })"
+                @dblclick.native="$router.push({ name: 'counters.show', params: { counterId: counter.id } })"
                 v-for="counter in group.counters"
                 :key="counter.id"
+                :counter-id="counter.id"
                 :color="counter.color"
                 :icon="counter.iconCode"
                 :title="counter.title"
@@ -18,10 +19,10 @@
         </v-card-text>
 
         <context-menu ref="contextmenu">
-            <context-menu-item icon="mdi-plus" :route="{ name: 'counters.create', params: { id: group.id } }">
+            <context-menu-item icon="mdi-plus" :route="{ name: 'groups.counters.create', params: { groupId: group.id } }">
                 Додати лічильник
             </context-menu-item>
-            <context-menu-item icon="mdi-account-multiple-plus" :route="{ name: 'counters.create', params: { id: group.id } }">
+            <context-menu-item icon="mdi-account-multiple-plus" :route="{ name: 'groups.share', params: { groupId: group.id } }">
                 Поділитися
             </context-menu-item>
         </context-menu>

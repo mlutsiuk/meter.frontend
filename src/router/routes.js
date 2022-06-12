@@ -32,25 +32,40 @@ export default [
                 component: NonImplemented
             },
             {
-                path: 'groups/:id',
+                path: 'groups/:groupId',
                 name: 'groups.show',
                 component: NonImplemented
             },
             {
-                path: 'groups/:id/edit',
+                path: 'groups/:groupId/edit',
                 name: 'groups.edit',
                 component: NonImplemented
             },
-
             {
-                path: 'groups/:id/counters/create',
-                name: 'counters.create',
+                path: 'groups/:groupId/share',
+                name: 'groups.share',
                 component: NonImplemented
             },
 
             {
-                path: 'counters/:id',
+                path: 'groups/:groupId/counters/create',
+                name: 'groups.counters.create',
+                component: NonImplemented
+            },
+
+            {
+                path: 'counters/:counterId',
                 name: 'counters.show',
+                component: NonImplemented
+            },
+            {
+                path: 'counters/:counterId/charts',
+                name: 'counters.charts',
+                component: NonImplemented
+            },
+            {
+                path: 'counters/:counterId/edit',
+                name: 'counters.edit',
                 component: NonImplemented
             },
         ]
