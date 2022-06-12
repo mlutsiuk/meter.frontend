@@ -88,6 +88,9 @@ export default {
                 text: 'Створено',
                 color: 'success'
             });
+        },
+        async closing() {
+            this.$refs.form.reset();
         }
     }
 };
