@@ -11,11 +11,9 @@
         />
 
         <context-menu ref="contextmenu">
-            <v-list dense>
-                <v-list-item @click="$router.push({ name: 'groups.create' })">
-                    <v-list-item-title>Створити групу</v-list-item-title>
-                </v-list-item>
-            </v-list>
+            <context-menu-item icon="mdi-home-group-plus" :route="{ name: 'groups.create' }">
+                Створити групу
+            </context-menu-item>
         </context-menu>
     </v-container>
 </template>
@@ -23,10 +21,12 @@
 <script>
 import GroupCard from './components/GroupCard';
 import ContextMenu from '@/components/ContextMenu';
+import ContextMenuItem from '@/components/ContextMenuItem';
 
 export default {
     name: 'DashboardPage',
     components: {
+        ContextMenuItem,
         ContextMenu,
         GroupCard
     },

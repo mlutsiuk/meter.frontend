@@ -17,11 +17,12 @@
         </v-card-text>
 
         <context-menu ref="contextmenu">
-            <v-list dense>
-                <v-list-item @click="$router.push({ name: 'counters.create', params: { id: group.id } })">
-                    <v-list-item-title>Додати лічильник</v-list-item-title>
-                </v-list-item>
-            </v-list>
+            <context-menu-item icon="mdi-plus" :route="{ name: 'counters.create', params: { id: group.id } }">
+                Додати лічильник
+            </context-menu-item>
+            <context-menu-item icon="mdi-account-multiple-plus" :route="{ name: 'counters.create', params: { id: group.id } }">
+                Поділитися
+            </context-menu-item>
         </context-menu>
     </v-card>
 </template>
@@ -29,10 +30,12 @@
 <script>
 import CountersGridCell from './CountersGridCell';
 import ContextMenu from '@/components/ContextMenu';
+import ContextMenuItem from '@/components/ContextMenuItem';
 
 export default {
     name: 'GroupCard',
     components: {
+        ContextMenuItem,
         ContextMenu,
         CountersGridCell
     },
