@@ -19,7 +19,7 @@
                     >
                         <validation-provider
                             v-slot="{ errors }"
-                            name="Email"
+                            name="Назва"
                             rules="required|min:1|max:35"
                             slim
                         >
@@ -61,7 +61,7 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
-import { DIALOG_SHOW_GROUP_EDIT } from '@/components/Dialogs/events';
+import { DIALOG_SHOW_GROUP_EDIT } from './events';
 import dialogMixin from './dialogMixin';
 
 export default {

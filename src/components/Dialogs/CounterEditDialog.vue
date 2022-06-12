@@ -61,7 +61,7 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
-import { DIALOG_SHOW_COUNTER_EDIT } from '@/components/Dialogs/events';
+import { DIALOG_SHOW_COUNTER_EDIT } from './events';
 import dialogMixin from './dialogMixin';
 
 export default {

@@ -26,14 +26,12 @@
                 Графіки
             </context-menu-item>
 
-            <!-- TODO: Show dialog menu -->
             <context-menu-item icon="mdi-format-color-text" @click="nonImplemented()">
                 Вигляд
             </context-menu-item>
 
             <v-divider/>
 
-            <!-- TODO: Show dialog menu -->
             <context-menu-item icon="mdi-trash-can-outline" @click="showCounterDeleteDialog()">
                 Видалити
             </context-menu-item>

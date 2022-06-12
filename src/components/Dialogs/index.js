@@ -96,7 +96,7 @@ export const showGroupDeleteDialog = (payload, onConfirm, onReject) => {
 
 /**
  * @param {Object} payload - Payload to send to dialog component
- * @param {number} payload.groupId - Group id to delete
+ * @param {number} payload.groupId - Group id to edit
  * @param {function} [onConfirm] - Callback to run after dialog confirm
  * @param {function} [onReject] - Callback to run after dialog reject
  */

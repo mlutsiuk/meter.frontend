@@ -22,29 +22,8 @@ export default [
                 component: DashboardPage
             },
             {
-                path: 'groups/create',
-                name: 'groups.create',
-                component: NonImplemented
-            },
-            {
                 path: 'groups/:groupId',
                 name: 'groups.show',
-                component: NonImplemented
-            },
-            {
-                path: 'groups/:groupId/edit',
-                name: 'groups.edit',
-                component: NonImplemented
-            },
-            {
-                path: 'groups/:groupId/share',
-                name: 'groups.share',
-                component: NonImplemented
-            },
-
-            {
-                path: 'groups/:groupId/counters/create',
-                name: 'groups.counters.create',
                 component: NonImplemented
             },
 

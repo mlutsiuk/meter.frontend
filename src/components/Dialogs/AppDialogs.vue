@@ -11,22 +11,22 @@
 </template>
 
 <script>
+import CounterCreateDialog from './CounterCreateDialog';
 import CounterDeleteDialog from './CounterDeleteDialog';
-import GroupDeleteDialog from './GroupDeleteDialog';
+import CounterEditDialog from './CounterEditDialog';
 import GroupCreateDialog from './GroupCreateDialog';
-import GroupEditDialog from '@/components/Dialogs/GroupEditDialog';
-import CounterCreateDialog from '@/components/Dialogs/CounterCreateDialog';
-import CounterEditDialog from '@/components/Dialogs/CounterEditDialog';
+import GroupDeleteDialog from './GroupDeleteDialog';
+import GroupEditDialog from './GroupEditDialog';
 
 export default {
     name: 'AppDialogs',
     components: {
-        CounterEditDialog,
         CounterCreateDialog,
-        GroupEditDialog,
+        CounterEditDialog,
+        CounterDeleteDialog,
         GroupCreateDialog,
         GroupDeleteDialog,
-        CounterDeleteDialog
+        GroupEditDialog
     }
 };
 </script>

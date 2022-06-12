@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { DIALOG_SHOW_COUNTER_DELETE } from '@/components/Dialogs/events';
+import { DIALOG_SHOW_COUNTER_DELETE } from './events';
 import dialogMixin from './dialogMixin';
 
 export default {
