@@ -18,6 +18,8 @@
                 <v-list-item-title>Налаштування</v-list-item-title>
             </v-list-item>
 
+            <v-divider/>
+
             <v-list-item @click="logout()">
                 <v-list-item-title>Вихід</v-list-item-title>
             </v-list-item>

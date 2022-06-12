@@ -8,6 +8,7 @@
 
         <v-card-text class="counters-grid">
             <counters-grid-cell
+                @dblclick.native="$router.push({ name: 'counters.show', params: { id: counter.id } })"
                 v-for="counter in group.counters"
                 :key="counter.id"
                 :color="counter.color"

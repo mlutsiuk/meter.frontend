@@ -47,6 +47,12 @@ export default [
                 name: 'counters.create',
                 component: NonImplemented
             },
+
+            {
+                path: 'counters/:id',
+                name: 'counters.show',
+                component: NonImplemented
+            },
         ]
     },
 
@@ -64,6 +70,7 @@ export default [
                 name: 'development.snackbar-messages',
                 component: SnackbarMessagesPage
             }
+            //TODO: Environment variables
         ]
     },
 

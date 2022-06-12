@@ -22,7 +22,7 @@
             <context-menu-item icon="mdi-playlist-edit" :route="{ name: 'groups.create' }">
                 Редагувати
             </context-menu-item>
-            <context-menu-item disabled icon="mdi-chart-bar" :route="{ name: 'groups.create' }">
+            <context-menu-item icon="mdi-chart-bar" :route="{ name: 'groups.create' }">
                 Графіки
             </context-menu-item>
             <context-menu-item icon="mdi-format-color-text" :route="{ name: 'groups.create' }">
