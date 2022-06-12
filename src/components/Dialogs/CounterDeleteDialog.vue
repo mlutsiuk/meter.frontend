@@ -1,7 +1,11 @@
 <template>
     <v-dialog
+        @click:outside="close()"
+        @keydown.esc="close()"
         v-model="active"
         max-width="310"
+        no-click-animation
+        persistent
     >
         <v-card>
             <v-card-title>
@@ -16,12 +20,15 @@
                 <v-spacer></v-spacer>
                 <v-btn
                     @click="reject()"
+                    :disabled="loading"
                     text
                 >
                     Скасувати
                 </v-btn>
                 <v-btn
                     @click="confirm()"
+                    :disabled="loading"
+                    :loading="loading"
                     color="red darken-1"
                     text
                 >
@@ -41,6 +48,18 @@ export default {
     mixins: [dialogMixin],
     data: () => ({
         activationEvent: DIALOG_SHOW_COUNTER_DELETE
-    })
+    }),
+    methods: {
+        async confirmed() {
+            console.log(`Making delete request for counter with id ${ this.payload.counterId }`);
+
+            this.loading = true;
+            await new Promise(r => setTimeout(r, 2000));
+            this.loading = false;
+
+            console.log('Request successful, closing dialog');
+            this.close();
+        }
+    }
 };
 </script>

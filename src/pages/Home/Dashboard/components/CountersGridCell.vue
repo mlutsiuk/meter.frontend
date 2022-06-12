@@ -79,6 +79,7 @@ export default {
         },
         showCounterDeleteDialog() {
             showCounterDeleteDialog({ counterId: this.counterId }, () => {
+                console.log('Reloaded data from component');
                 this.$store.commit('message/push', {
                     text: 'Видалено з компонента',
                     color: 'success'
