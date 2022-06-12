@@ -21,7 +21,6 @@ export default {
                 return;
             }
             this.active = false;
-            console.warn('close');
             this.payload = {};
         },
         async confirm() {

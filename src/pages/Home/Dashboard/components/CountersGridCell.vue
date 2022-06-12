@@ -78,12 +78,7 @@ export default {
             });
         },
         showCounterDeleteDialog() {
-            showCounterDeleteDialog({ counterId: this.counterId }, () => {
-                this.$store.commit('message/push', {
-                    text: 'Видалено',
-                    color: 'success'
-                });
-            });
+            showCounterDeleteDialog({ counterId: this.counterId });
         }
     }
 };

@@ -9,10 +9,10 @@
     >
         <v-card>
             <v-card-title>
-                Видалити лічильник?
+                Видалити групу?
             </v-card-title>
             <v-card-text>
-                Після підтвердженя лічильник буде видалений разом із усіма записами.<br/>
+                Після підтвердженя група буде видалена разом із усіма лічильниками.<br/>
                 Ви справді бажаєте продовжити?
             </v-card-text>
 
@@ -40,14 +40,14 @@
 </template>
 
 <script>
-import { DIALOG_SHOW_COUNTER_DELETE } from '@/components/Dialogs/events';
+import { DIALOG_SHOW_GROUP_DELETE } from '@/components/Dialogs/events';
 import dialogMixin from './dialogMixin';
 
 export default {
-    name: 'CounterDeleteDialog',
+    name: 'GroupDeleteDialog',
     mixins: [dialogMixin],
     data: () => ({
-        activationEvent: DIALOG_SHOW_COUNTER_DELETE
+        activationEvent: DIALOG_SHOW_GROUP_DELETE
     }),
     methods: {
         async confirmed() {
