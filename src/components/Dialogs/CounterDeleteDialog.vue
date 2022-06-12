@@ -51,13 +51,10 @@ export default {
     }),
     methods: {
         async confirmed() {
-            console.log(`Making delete request for counter with id ${ this.payload.counterId }`);
-
             this.loading = true;
             await new Promise(r => setTimeout(r, 2000));
             this.loading = false;
 
-            console.log('Request successful, closing dialog');
             this.close();
         }
     }
