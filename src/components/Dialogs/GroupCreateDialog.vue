@@ -78,6 +78,10 @@ export default {
     }),
     methods: {
         async confirmed() {
+            if (!await this.$refs.form.validate()) {
+                return;
+            }
+
             this.loading = true;
             await new Promise(r => setTimeout(r, 2000));
             this.loading = false;
