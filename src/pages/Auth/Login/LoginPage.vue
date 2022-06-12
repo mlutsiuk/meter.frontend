@@ -120,7 +120,7 @@ export default {
                     password: this.password
                 });
                 token = response.data.access_token;
-            } catch (e) {
+            } catch {
                 this.loading = false;
 
                 this.$store.commit('message/push', {

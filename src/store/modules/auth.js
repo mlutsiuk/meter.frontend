@@ -49,7 +49,7 @@ export default {
                 const { data } = await axios.get('/auth/current');
 
                 commit('fetchUserSuccess', data);
-            } catch (e) {
+            } catch {
                 commit('fetchUserFailure');
             }
         },
