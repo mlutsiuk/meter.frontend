@@ -11,7 +11,7 @@
         />
 
         <context-menu ref="contextmenu">
-            <context-menu-item icon="mdi-home-group-plus" :route="{ name: 'groups.create' }">
+            <context-menu-item icon="mdi-home-group-plus" @click="showGroupCreateDialog()">
                 Створити групу
             </context-menu-item>
         </context-menu>
@@ -22,6 +22,7 @@
 import GroupCard from './components/GroupCard';
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
+import { showGroupCreateDialog } from '@/components/Dialogs';
 
 export default {
     name: 'DashboardPage',
@@ -138,6 +139,11 @@ export default {
                 ]
             }
         ]
-    })
+    }),
+    methods: {
+        showGroupCreateDialog() {
+            showGroupCreateDialog();
+        }
+    }
 };
 </script>
