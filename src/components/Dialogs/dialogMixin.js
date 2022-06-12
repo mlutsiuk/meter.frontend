@@ -9,19 +9,20 @@ export default {
     }),
     methods: {
         activate(event) {
-            console.log(event);
             this.payload = event.payload;
             this.onConfirm = event.onConfirm;
             this.onReject = event.onReject;
 
             this.active = true;
         },
-        close() {
-            if(this.loading) {
+        async close() {
+            if (this.loading) {
                 return;
             }
             this.active = false;
             this.payload = {};
+
+            await this.closing();
         },
         async confirm() {
             if (this.confirmed) {
@@ -46,11 +47,13 @@ export default {
             }
         },
 
+        // Method that can be overrided in component
+        async closing() { },
         async confirmed() {
-            this.close();
+            await this.close();
         },
         async rejected() {
-            this.close();
+            await this.close();
         }
     },
     created() {

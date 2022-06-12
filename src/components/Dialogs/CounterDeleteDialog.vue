@@ -55,7 +55,7 @@ export default {
             await new Promise(r => setTimeout(r, 2000));
             this.loading = false;
 
-            this.close();
+            await this.close();
 
             this.$store.commit('message/push', {
                 text: 'Видалено',
