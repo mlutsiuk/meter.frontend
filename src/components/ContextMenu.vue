@@ -6,17 +6,18 @@
         absolute
         offset-y
     >
-        <v-list
-            @contextmenu.prevent="() => {}"
-            class="context-menu-list"
-            dense
-        >
-            <slot>
-                <v-list dense>
-                    <v-list-item/>
-                </v-list>
-            </slot>
-        </v-list>
+        <div @contextmenu.prevent="() => {}">
+            <v-list
+                class="context-menu-list"
+                dense
+            >
+                <slot>
+                    <v-list dense>
+                        <v-list-item/>
+                    </v-list>
+                </slot>
+            </v-list>
+        </div>
     </v-menu>
 </template>
 
