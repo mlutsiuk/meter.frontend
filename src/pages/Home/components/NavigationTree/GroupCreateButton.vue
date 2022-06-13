@@ -1,6 +1,6 @@
 <template>
     <v-list-item
-        @click="$router.push({ name: 'groups.create' })"
+        @click="showGroupCreateDialog()"
     >
         <v-list-item-icon>
             <v-icon>
@@ -14,7 +14,14 @@
 </template>
 
 <script>
+import { showGroupCreateDialog } from '@/components/Dialogs';
+
 export default {
-    name: 'GroupCreateButton'
+    name: 'GroupCreateButton',
+    methods: {
+        showGroupCreateDialog() {
+            showGroupCreateDialog();
+        }
+    }
 };
 </script>
