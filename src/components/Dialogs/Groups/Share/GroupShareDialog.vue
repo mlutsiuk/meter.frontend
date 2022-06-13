@@ -30,7 +30,7 @@
 import { DIALOG_SHOW_GROUP_SHARE } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
 import DialogActions from '@/components/DialogActions';
-import GroupUsersList from '@/components/Dialogs/Groups/Share/GroupUsersList';
+import GroupUsersList from './GroupUsersList';
 
 export default {
     name: 'GroupShareDialog',

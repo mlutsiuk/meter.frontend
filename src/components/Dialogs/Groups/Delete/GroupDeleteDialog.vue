@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import { DIALOG_SHOW_GROUP_DELETE } from './events';
-import dialogMixin from './dialogMixin';
+import { DIALOG_SHOW_GROUP_DELETE } from '@/components/Dialogs/events';
+import dialogMixin from '@/components/Dialogs/dialogMixin';
 
 export default {
     name: 'GroupDeleteDialog',

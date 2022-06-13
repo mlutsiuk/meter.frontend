@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import CounterCreateDialog from './CounterCreateDialog';
-import CounterDeleteDialog from './CounterDeleteDialog';
-import CounterEditDialog from './CounterEditDialog';
-import GroupCreateDialog from './GroupCreateDialog';
-import GroupDeleteDialog from './GroupDeleteDialog';
-import GroupEditDialog from './GroupEditDialog';
+import CounterCreateDialog from './Counters/Create/CounterCreateDialog';
+import CounterDeleteDialog from './Counters/Delete/CounterDeleteDialog';
+import CounterEditDialog from './Counters/Edit/CounterEditDialog';
+import GroupCreateDialog from './Groups/Create/GroupCreateDialog';
+import GroupDeleteDialog from './Groups/Delete/GroupDeleteDialog';
+import GroupEditDialog from './Groups/Edit/GroupEditDialog';
 import GroupShareDialog from './Groups/Share/GroupShareDialog';
 
 export default {

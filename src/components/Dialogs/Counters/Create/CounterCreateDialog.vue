@@ -61,8 +61,8 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
-import { DIALOG_SHOW_COUNTER_CREATE } from './events';
-import dialogMixin from './dialogMixin';
+import { DIALOG_SHOW_COUNTER_CREATE } from '@/components/Dialogs/events';
+import dialogMixin from '@/components/Dialogs/dialogMixin';
 
 export default {
     name: 'CounterCreateDialog',

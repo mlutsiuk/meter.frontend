@@ -9,7 +9,7 @@
     >
         <v-card>
             <v-card-title>
-                Створення групи
+                Редагування лічильника
             </v-card-title>
             <v-card-text>
                 <v-container fluid>
@@ -29,7 +29,7 @@
                                 :disabled="loading"
                                 :error-messages="errors"
                                 label="Назва"
-                                placeholder="Квартира"
+                                placeholder="Електроенергія"
                             />
                         </validation-provider>
                     </validation-observer>
@@ -52,7 +52,7 @@
                     color="success"
                     text
                 >
-                    Створити
+                    Зберегти
                 </v-btn>
             </v-card-actions>
         </v-card>
@@ -61,18 +61,18 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
-import { DIALOG_SHOW_GROUP_CREATE } from './events';
-import dialogMixin from './dialogMixin';
+import { DIALOG_SHOW_COUNTER_EDIT } from '@/components/Dialogs/events';
+import dialogMixin from '@/components/Dialogs/dialogMixin';
 
 export default {
-    name: 'GroupCreateDialog',
+    name: 'CounterEditDialog',
     mixins: [dialogMixin],
     components: {
         ValidationObserver,
         ValidationProvider
     },
     data: () => ({
-        activationEvent: DIALOG_SHOW_GROUP_CREATE,
+        activationEvent: DIALOG_SHOW_COUNTER_EDIT,
 
         title: ''
     }),
@@ -89,7 +89,7 @@ export default {
             await this.close();
 
             this.$store.commit('message/push', {
-                text: 'Створено',
+                text: 'Збережено',
                 color: 'success'
             });
         },
