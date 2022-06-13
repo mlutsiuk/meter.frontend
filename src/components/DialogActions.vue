@@ -21,7 +21,7 @@
                 :color="cancelColor"
                 text
             >
-                {{ cancelText }}
+                DD{{ cancelText }}
             </v-btn>
             <v-btn
                 v-if="!hideConfirm"

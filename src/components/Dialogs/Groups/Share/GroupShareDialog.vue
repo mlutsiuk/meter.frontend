@@ -34,12 +34,12 @@ import GroupUsersList from './GroupUsersList';
 
 export default {
     name: 'GroupShareDialog',
-    mixins: [dialogMixin],
+    mixins: [ dialogMixin ],
     components: { GroupUsersList, DialogActions },
     data: () => ({
         activationEvent: DIALOG_SHOW_GROUP_SHARE,
 
-        title: '',
+        title: ''
     }),
     methods: {
         async confirmed() {

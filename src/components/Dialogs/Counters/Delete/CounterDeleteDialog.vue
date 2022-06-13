@@ -16,25 +16,13 @@
                 Ви справді бажаєте продовжити?
             </v-card-text>
 
-            <v-card-actions>
-                <v-spacer/>
-                <v-btn
-                    @click="reject()"
-                    :disabled="loading"
-                    text
-                >
-                    Скасувати
-                </v-btn>
-                <v-btn
-                    @click="confirm()"
-                    :disabled="loading"
-                    :loading="loading"
-                    color="red darken-1"
-                    text
-                >
-                    Видалити
-                </v-btn>
-            </v-card-actions>
+            <dialog-actions
+                @cancel="reject()"
+                @confirm="confirm()"
+                :loading="loading"
+                confirm-text="Видалити"
+                confirm-color="red darken-1"
+            />
         </v-card>
     </v-dialog>
 </template>
@@ -42,10 +30,12 @@
 <script>
 import { DIALOG_SHOW_COUNTER_DELETE } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
+import DialogActions from '@/components/DialogActions';
 
 export default {
     name: 'CounterDeleteDialog',
-    mixins: [dialogMixin],
+    components: { DialogActions },
+    mixins: [ dialogMixin ],
     data: () => ({
         activationEvent: DIALOG_SHOW_COUNTER_DELETE
     }),

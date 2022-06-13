@@ -36,25 +36,13 @@
                 </v-container>
             </v-card-text>
 
-            <v-card-actions>
-                <v-spacer/>
-                <v-btn
-                    @click="reject()"
-                    :disabled="loading"
-                    text
-                >
-                    Скасувати
-                </v-btn>
-                <v-btn
-                    @click="confirm()"
-                    :disabled="loading"
-                    :loading="loading"
-                    color="success"
-                    text
-                >
-                    Зберегти
-                </v-btn>
-            </v-card-actions>
+            <dialog-actions
+                @cancel="reject()"
+                @confirm="confirm()"
+                :loading="loading"
+                confirm-text="Зберегти"
+                confirm-color="success"
+            />
         </v-card>
     </v-dialog>
 </template>
@@ -63,11 +51,13 @@
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
 import { DIALOG_SHOW_GROUP_EDIT } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
+import DialogActions from '@/components/DialogActions';
 
 export default {
     name: 'GroupEditDialog',
-    mixins: [dialogMixin],
+    mixins: [ dialogMixin ],
     components: {
+        DialogActions,
         ValidationObserver,
         ValidationProvider
     },

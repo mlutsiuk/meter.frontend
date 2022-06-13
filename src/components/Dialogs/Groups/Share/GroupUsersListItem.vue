@@ -52,7 +52,7 @@ export default {
     },
     data: () => ({
         accessTypes: [
-            { value: false, text: 'Перегляд',  },
+            { value: false, text: 'Перегляд' },
             { value: true, text: 'Редагування' }
         ],
         // Boolean, true - can edit, false - can't
