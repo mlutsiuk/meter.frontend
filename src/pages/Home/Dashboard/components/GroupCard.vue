@@ -25,7 +25,7 @@
             <context-menu-item icon="mdi-playlist-edit" @click="showGroupEditDialog()">
                 Редагувати групу
             </context-menu-item>
-            <context-menu-item icon="mdi-account-multiple-plus" :route="{ name: 'groups.share', params: { groupId: group.id } }">
+            <context-menu-item icon="mdi-account-multiple-plus" @click="showGroupShareDialog()">
                 Поділитися
             </context-menu-item>
 
@@ -42,7 +42,12 @@
 import CountersGridCell from './CountersGridCell';
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
-import { showCounterCreateDialog, showGroupDeleteDialog, showGroupEditDialog } from '@/components/Dialogs';
+import {
+    showCounterCreateDialog,
+    showGroupDeleteDialog,
+    showGroupEditDialog,
+    showGroupShareDialog
+} from '@/components/Dialogs';
 
 export default {
     name: 'GroupCard',
@@ -72,6 +77,11 @@ export default {
             showGroupEditDialog({
                 groupId: this.group.id
             })
+        },
+        showGroupShareDialog() {
+            showGroupShareDialog({
+                groupId: this.group.id
+            });
         }
     }
 };

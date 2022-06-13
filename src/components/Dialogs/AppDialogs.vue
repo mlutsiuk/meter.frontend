@@ -7,6 +7,7 @@
         <group-create-dialog/>
         <group-delete-dialog/>
         <group-edit-dialog/>
+        <group-share-dialog/>
     </div>
 </template>
 
@@ -17,10 +18,12 @@ import CounterEditDialog from './CounterEditDialog';
 import GroupCreateDialog from './GroupCreateDialog';
 import GroupDeleteDialog from './GroupDeleteDialog';
 import GroupEditDialog from './GroupEditDialog';
+import GroupShareDialog from './Groups/Share/GroupShareDialog';
 
 export default {
     name: 'AppDialogs',
     components: {
+        GroupShareDialog,
         CounterCreateDialog,
         CounterEditDialog,
         CounterDeleteDialog,
