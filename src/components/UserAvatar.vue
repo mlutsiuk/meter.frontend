@@ -3,8 +3,8 @@
         class="mr-3"
         icon
     >
-        <v-avatar v-if="$store.getters['auth/avatar']" size="40">
-            <img :src="$store.getters['auth/avatar']" :alt="$store.getters['auth/name']">
+        <v-avatar v-if="avatar" size="40">
+            <img :src="avatar" :alt="name">
         </v-avatar>
 
         <v-avatar v-else :color="avatarColor" size="40">
@@ -16,13 +16,22 @@
 <script>
 export default {
     name: 'UserAvatar',
+    props: {
+        name: {
+            type: String,
+            required: true
+        },
+        avatar: {
+            type: String,
+            default: null
+        }
+    },
     computed: {
         avatarColor() {
             let hash = 0;
-            let name = this.$store.getters['auth/name'] ?? '?';
 
-            for (let i = 0; i < name.length; i++) {
-                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            for (let i = 0; i < this.name.length; i++) {
+                hash = this.name.charCodeAt(i) + ((hash << 5) - hash);
             }
 
             const h = hash % 360;
@@ -31,7 +40,7 @@ export default {
             return `hsl(${ h }, ${ s }%, ${ l }%)`;
         },
         avatarText() {
-            return (this.$store.getters['auth/name'] ?? '?').charAt(0);
+            return this.name.charAt(0);
         }
     }
 };

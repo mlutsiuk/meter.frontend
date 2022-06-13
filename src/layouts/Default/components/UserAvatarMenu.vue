@@ -9,7 +9,10 @@
                 v-on="on"
                 v-bind="attrs"
             >
-                <user-avatar/>
+                <user-avatar
+                    :name="name"
+                    :avatar="$store.getters['auth/avatar']"
+                />
             </div>
         </template>
 
@@ -28,7 +31,7 @@
 </template>
 
 <script>
-import UserAvatar from './UserAvatar';
+import UserAvatar from '@/components/UserAvatar';
 
 export default {
     name: 'UserAvatarMenu',
@@ -45,6 +48,14 @@ export default {
         async logout() {
             await this.$store.dispatch('auth/logout');
             await this.$router.push({ name: 'login' });
+        }
+    },
+    computed: {
+        name() {
+            return this.$store.getters['auth/name'] ?? '?';
+        },
+        avatar() {
+            return this.$store.getters['auth/avatar'];
         }
     }
 };
