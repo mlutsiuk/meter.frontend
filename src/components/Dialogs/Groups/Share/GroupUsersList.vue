@@ -1,5 +1,5 @@
 <template>
-    <v-list two-line>
+    <v-list>
         <group-users-list-item
             :user="owner"
             owner
@@ -44,24 +44,6 @@ export default {
                 name: 'AnechkaR',
                 email: 'anna.romaniuk@oa.edu.ua',
                 avatar: 'https://lh3.googleusercontent.com/a-/AOh14GjuMP3JzbdWcK1esUSZqIVRRNKMwX8RJ9QX84k6Jw=s88-p-k-rw-no'
-            },
-            {
-                id: 3,
-                name: 'VanDeMiron',
-                email: 'ivan.mirchenko@oa.edu.ua',
-                avatar: null
-            },
-            {
-                id: 4,
-                name: 'Katerytska',
-                email: 'kateryna.palichuk@oa.edu.ua',
-                avatar: null
-            },
-            {
-                id: 5,
-                name: 'Funny_Spider',
-                email: 'nazar.akusok@oa.edu.ua',
-                avatar: 'https://lh3.googleusercontent.com/a-/AOh14GjO0kxmDQPaNlgrFh6kShCAuw7yJ_DzcAkWFw-g=s88-p-k-rw-no'
             }
         ]
     })
