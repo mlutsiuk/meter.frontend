@@ -4,7 +4,7 @@
         class="mb-4"
         outlined
     >
-        <v-card-title v-text="group.title"/>
+        <v-card-title class="group-card-title" v-text="group.title"/>
 
         <v-card-text class="counters-grid">
             <counters-grid-cell
@@ -78,6 +78,10 @@ export default {
 </script>
 
 <style scoped>
+.group-card-title {
+    user-select: none;
+}
+
 .counters-grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
