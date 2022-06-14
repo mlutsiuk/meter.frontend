@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/_global.scss";
+
 .default-layout {
     min-height: 100vh;
 }
@@ -37,55 +39,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-::-webkit-scrollbar-button {
-    display: none;
-}
-
 body {
     -ms-overflow-style:none;
-}
-
-.theme--light .themed-scrollbar {
-    &::-webkit-scrollbar {
-        width: 15px;
-    }
-
-    &::-webkit-scrollbar-track {
-        //background: #e6e6e6;
-        //border-left: 1px solid #dadada;
-        background: none;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #b0b0b0;
-        border: solid 3px #e6e6e6;
-        border-radius: 7px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: #757575;
-    }
-}
-
-.theme--dark .themed-scrollbar {
-    &::-webkit-scrollbar {
-        width: 15px;
-    }
-
-    &::-webkit-scrollbar-track {
-        //background: #202020;
-        //border-left: 1px solid #2c2c2c;
-        background: none;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #3e3e3e;
-        border: solid 3px #202020;
-        border-radius: 7px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: #757575;
-    }
 }
 </style>

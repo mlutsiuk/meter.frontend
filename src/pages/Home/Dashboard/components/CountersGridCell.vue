@@ -25,8 +25,7 @@
             <context-menu-item icon="mdi-chart-bar" :route="{ name: 'counters.charts', params: { counterId: counterId } }">
                 Графіки
             </context-menu-item>
-
-            <context-menu-item icon="mdi-format-color-text" @click="nonImplemented()">
+            <context-menu-item icon="mdi-format-color-text" @click="showCounterAppearanceDialog()">
                 Вигляд
             </context-menu-item>
 
@@ -42,7 +41,7 @@
 <script>
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
-import { showCounterDeleteDialog, showCounterEditDialog } from '@/components/Dialogs';
+import { showCounterAppearanceDialog, showCounterDeleteDialog, showCounterEditDialog } from '@/components/Dialogs';
 
 export default {
     name: 'CountersGridCell',
@@ -74,6 +73,10 @@ export default {
                 text: 'Наразі це не реалізовано',
                 color: 'accent'
             });
+        },
+
+        showCounterAppearanceDialog() {
+            showCounterAppearanceDialog({ counterId: this.counterId });
         },
         showCounterDeleteDialog() {
             showCounterDeleteDialog({ counterId: this.counterId });
