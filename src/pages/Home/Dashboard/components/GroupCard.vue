@@ -15,7 +15,29 @@
                 :color="counter.color"
                 :icon="counter.iconCode"
                 :title="counter.title"
-            />
+            >
+                <template #contextmenu>
+                    <context-menu-item :route="{ name: 'counters.show', params: { counterId: counter.id } }">
+                        Відкрити
+                    </context-menu-item>
+                    <context-menu-item icon="mdi-playlist-edit" @click="showCounterEditDialog()">
+                        Редагувати
+                    </context-menu-item>
+                    <context-menu-item icon="mdi-chart-bar"
+                                       :route="{ name: 'counters.charts', params: { counterId: counter.id } }">
+                        Графіки
+                    </context-menu-item>
+                    <context-menu-item icon="mdi-format-color-text" @click="showCounterAppearanceDialog()">
+                        Вигляд
+                    </context-menu-item>
+
+                    <v-divider/>
+
+                    <context-menu-item icon="mdi-trash-can-outline" @click="showCounterDeleteDialog()">
+                        Видалити
+                    </context-menu-item>
+                </template>
+            </counters-grid-cell>
         </v-card-text>
 
         <context-menu ref="contextmenu">
@@ -43,7 +65,10 @@ import CountersGridCell from './CountersGridCell';
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
 import {
+    showCounterAppearanceDialog,
     showCounterCreateDialog,
+    showCounterDeleteDialog,
+    showCounterEditDialog,
     showGroupDeleteDialog,
     showGroupEditDialog,
     showGroupShareDialog
@@ -76,12 +101,22 @@ export default {
         showGroupEditDialog() {
             showGroupEditDialog({
                 groupId: this.group.id
-            })
+            });
         },
         showGroupShareDialog() {
             showGroupShareDialog({
                 groupId: this.group.id
             });
+        },
+
+        showCounterAppearanceDialog() {
+            showCounterAppearanceDialog({ counterId: this.counterId });
+        },
+        showCounterDeleteDialog() {
+            showCounterDeleteDialog({ counterId: this.counterId });
+        },
+        showCounterEditDialog() {
+            showCounterEditDialog({ counterId: this.counterId });
         }
     }
 };

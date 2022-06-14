@@ -1,8 +1,8 @@
 <template>
     <v-card
-        @contextmenu.prevent="$refs.contextmenu.show"
-        v-ripple
+        @contextmenu.prevent="showContextMenu"
         class="counter-grid-cell"
+        v-ripple
         outlined
     >
         <v-card-text class="text-body-2 px-4 py-3 d-flex align-center">
@@ -16,44 +16,20 @@
         </v-card-text>
 
         <context-menu ref="contextmenu">
-            <context-menu-item :route="{ name: 'counters.show', params: { counterId: counterId } }">
-                Відкрити
-            </context-menu-item>
-            <context-menu-item icon="mdi-playlist-edit" @click="showCounterEditDialog()">
-                Редагувати
-            </context-menu-item>
-            <context-menu-item icon="mdi-chart-bar" :route="{ name: 'counters.charts', params: { counterId: counterId } }">
-                Графіки
-            </context-menu-item>
-            <context-menu-item icon="mdi-format-color-text" @click="showCounterAppearanceDialog()">
-                Вигляд
-            </context-menu-item>
-
-            <v-divider/>
-
-            <context-menu-item icon="mdi-trash-can-outline" @click="showCounterDeleteDialog()">
-                Видалити
-            </context-menu-item>
+            <slot name="contextmenu"/>
         </context-menu>
     </v-card>
 </template>
 
 <script>
 import ContextMenu from '@/components/ContextMenu';
-import ContextMenuItem from '@/components/ContextMenuItem';
-import { showCounterAppearanceDialog, showCounterDeleteDialog, showCounterEditDialog } from '@/components/Dialogs';
 
 export default {
     name: 'CountersGridCell',
     components: {
-        ContextMenuItem,
         ContextMenu
     },
     props: {
-        counterId: {
-            type: Number,
-            required: true
-        },
         color: {
             default: null,
             type: String
@@ -65,30 +41,24 @@ export default {
         title: {
             required: true,
             type: String
+        },
+        disableContextMenu: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
-        nonImplemented() {
-            this.$store.commit('message/push', {
-                text: 'Наразі це не реалізовано',
-                color: 'accent'
-            });
-        },
-
-        showCounterAppearanceDialog() {
-            showCounterAppearanceDialog({ counterId: this.counterId });
-        },
-        showCounterDeleteDialog() {
-            showCounterDeleteDialog({ counterId: this.counterId });
-        },
-        showCounterEditDialog() {
-            showCounterEditDialog({ counterId: this.counterId });
+        showContextMenu(event) {
+            if(this.disableContextMenu) {
+                return;
+            }
+            this.$refs.contextmenu.show(event);
         }
     }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .counter-grid-cell {
     border-color: var(--v-secondary-base);
     user-select: none;
