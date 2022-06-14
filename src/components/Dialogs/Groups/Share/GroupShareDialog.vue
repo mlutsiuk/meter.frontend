@@ -13,6 +13,7 @@
                 Користувачі з доступом до групи
             </v-card-title>
             <v-card-text class="themed-scrollbar">
+                <!-- TODO: Change filter function to search by name and email -->
                 <v-autocomplete
                     v-model="newUser"
                     @input="userAdded()"
@@ -22,6 +23,7 @@
                     item-text="name"
                     ref="usersAutocomplete"
                     placeholder="Додати користувача"
+                    auto-select-first
                     filled
                     hide-details
                 >
