@@ -4,6 +4,7 @@
         :items="$store.getters['icon/icons']"
         :loading="$store.state.icon.loading"
         :disabled="$store.state.icon.loading"
+        :error-messages="errorMessages"
         item-value="id"
         item-text="code"
         auto-select-first
@@ -36,6 +37,7 @@ export default {
             type: Number,
             required: true
         },
+        errorMessages: { },
         color: {
             type: String,
             required: true
