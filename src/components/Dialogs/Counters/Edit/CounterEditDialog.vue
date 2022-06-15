@@ -61,13 +61,20 @@ export default {
         color: '#4FC3F7'
     }),
     methods: {
+        async activated() {
+            const { title, color, iconId } = (await axios.get(`/counters/${ this.payload.counterId }`)).data;
+
+            this.title = title;
+            this.color = color;
+            this.iconId = iconId;
+        },
         async confirmed() {
             if (!await this.$refs.form.validate()) {
                 return;
             }
 
             this.loading = true;
-            await axios.patch(`/counters/${this.payload.counterId}`, {
+            await axios.patch(`/counters/${ this.payload.counterId }`, {
                 color: this.color,
                 iconId: this.iconId,
                 title: this.title
