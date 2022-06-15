@@ -12,7 +12,7 @@
             <v-card-title>
                 Користувачі з доступом до групи
             </v-card-title>
-            <v-card-text class="themed-scrollbar">
+            <v-card-text>
                 <!-- TODO: Change filter function to search by name and email -->
                 <v-autocomplete
                     v-model="newUser"

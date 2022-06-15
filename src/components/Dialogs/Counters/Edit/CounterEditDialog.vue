@@ -6,6 +6,7 @@
         max-width="400px"
         no-click-animation
         persistent
+        scrollable
     >
         <v-card>
             <v-card-title>

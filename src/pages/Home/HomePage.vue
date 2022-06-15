@@ -2,7 +2,7 @@
     <v-row class="pa-3">
         <v-col
             cols="3"
-            class="scrollable-container themed-scrollbar align-stretch"
+            class="scrollable-container align-stretch"
         >
             <navigation-tree/>
         </v-col>
@@ -11,7 +11,7 @@
 
         <v-col
             cols="9"
-            class="scrollable-container themed-scrollbar d-flex align-stretch"
+            class="scrollable-container d-flex align-stretch"
         >
             <page-child/>
         </v-col>

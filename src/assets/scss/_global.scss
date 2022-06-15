@@ -1,4 +1,4 @@
-.theme--light .themed-scrollbar {
+.theme--light * {
   ::-webkit-scrollbar-button {
     display: none;
   }
@@ -24,7 +24,7 @@
   }
 }
 
-.theme--dark .themed-scrollbar {
+.theme--dark * {
   ::-webkit-scrollbar-button {
     display: none;
   }
