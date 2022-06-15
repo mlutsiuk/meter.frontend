@@ -8,12 +8,13 @@ export default {
         onReject: null
     }),
     methods: {
-        activate(event) {
+        async activate(event) {
             this.payload = event.payload;
             this.onConfirm = event.onConfirm;
             this.onReject = event.onReject;
 
             this.active = true;
+            await this.activated();
         },
         async close() {
             if (this.loading) {
@@ -48,13 +49,14 @@ export default {
         },
 
         // Method that can be overrided in component
-        async closing() { },
+        async activated() { },
         async confirmed() {
             await this.close();
         },
         async rejected() {
             await this.close();
-        }
+        },
+        async closing() { }
     },
     created() {
         this.$mitt.on(this.activationEvent, this.activate);
