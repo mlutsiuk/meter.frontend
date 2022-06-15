@@ -66,7 +66,12 @@ export default {
             }
 
             this.loading = true;
-            await axios.post('/counters');
+            await axios.post('/counters', {
+                color: this.color,
+                groupId: this.payload.groupId,
+                iconId: this.iconId,
+                title: this.title
+            });
             this.loading = false;
 
             await this.close();
