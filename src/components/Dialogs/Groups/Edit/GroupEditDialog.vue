@@ -53,6 +53,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
 import { DIALOG_SHOW_GROUP_EDIT } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
 import DialogActions from '@/components/DialogActions';
+import axios from '@/plugins/axios';
 
 export default {
     name: 'GroupEditDialog',
@@ -68,13 +69,20 @@ export default {
         title: ''
     }),
     methods: {
+        async activated() {
+            const { title } = (await axios.get(`/groups/${ this.payload.groupId }`)).data;
+
+            this.title = title;
+        },
         async confirmed() {
             if (!await this.$refs.form.validate()) {
                 return;
             }
 
             this.loading = true;
-            await new Promise(r => setTimeout(r, 2000));
+            await axios.patch(`/groups/${ this.payload.groupId }`, {
+                title: this.title
+            });
             this.loading = false;
 
             await this.close();
