@@ -84,6 +84,10 @@ export default {
         },
         async closing() {
             this.$refs.form.reset();
+
+            this.title = '';
+            this.iconId = 1;
+            this.color = '#4FC3F7';
         }
     }
 };
