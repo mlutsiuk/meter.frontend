@@ -3,7 +3,7 @@
         @click:outside="close()"
         @keydown.esc="close()"
         v-model="active"
-        max-width="500px"
+        max-width="400px"
         no-click-animation
         persistent
     >
@@ -12,28 +12,17 @@
                 Редагування лічильника
             </v-card-title>
             <v-card-text>
-                <v-container fluid>
-                    <validation-observer
-                        ref="form"
-                        slim
-                    >
-                        <validation-provider
-                            v-slot="{ errors }"
-                            name="Назва"
-                            rules="required|min:1|max:35"
-                            slim
-                        >
-                            <v-text-field
-                                @keydown.enter="confirm()"
-                                v-model="title"
-                                :disabled="loading"
-                                :error-messages="errors"
-                                label="Назва"
-                                placeholder="Електроенергія"
-                            />
-                        </validation-provider>
-                    </validation-observer>
-                </v-container>
+                <validation-observer
+                    ref="form"
+                    slim
+                >
+                    <counter-create-edit-form
+                        :loading="loading"
+                        :title.sync="title"
+                        :color.sync="color"
+                        :icon-id.sync="iconId"
+                    />
+                </validation-observer>
             </v-card-text>
 
             <dialog-actions
@@ -48,23 +37,27 @@
 </template>
 
 <script>
-import { ValidationObserver, ValidationProvider } from 'vee-validate';
+import { ValidationObserver } from 'vee-validate';
 import { DIALOG_SHOW_COUNTER_EDIT } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
 import DialogActions from '@/components/DialogActions';
+import axios from '@/plugins/axios';
+import CounterCreateEditForm from '../components/CounterCreateEditForm';
 
 export default {
     name: 'CounterEditDialog',
     mixins: [ dialogMixin ],
     components: {
+        CounterCreateEditForm,
         DialogActions,
-        ValidationObserver,
-        ValidationProvider
+        ValidationObserver
     },
     data: () => ({
         activationEvent: DIALOG_SHOW_COUNTER_EDIT,
 
-        title: ''
+        title: '',
+        iconId: 1,
+        color: '#4FC3F7'
     }),
     methods: {
         async confirmed() {
@@ -73,7 +66,11 @@ export default {
             }
 
             this.loading = true;
-            await new Promise(r => setTimeout(r, 2000));
+            await axios.patch(`/counters/${this.payload.counterId}`, {
+                color: this.color,
+                iconId: this.iconId,
+                title: this.title
+            });
             this.loading = false;
 
             await this.close();
