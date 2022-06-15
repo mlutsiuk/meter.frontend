@@ -39,42 +39,42 @@ export default {
                 ownerName: 'mlutsiuk',
                 counters: [
                     {
-                        id: 4,
+                        id: 1,
                         title: 'Газ',
                         color: '#FF8A65',
                         iconCode: 'mdi-fire',
                         latestValue: 13575
                     },
                     {
-                        id: 5,
+                        id: 2,
                         title: 'Вода',
                         color: '#4FC3F7',
                         iconCode: 'mdi-water',
                         latestValue: 416
                     },
                     {
-                        id: 6,
+                        id: 3,
                         title: 'Електроенергія',
                         color: '#FFD54F',
                         iconCode: 'mdi-lightbulb',
                         latestValue: null
                     },
                     {
-                        id: 7,
+                        id: 4,
                         title: 'Дуже довга назва лічильника, яка по розміру завелика для контейнера',
                         color: '#FFD54F',
                         iconCode: 'mdi-lightbulb',
                         latestValue: null
                     },
                     {
-                        id: 8,
+                        id: 5,
                         title: 'Електроенергія',
                         color: '#FFD54F',
                         iconCode: 'mdi-lightbulb',
                         latestValue: null
                     },
                     {
-                        id: 9,
+                        id: 6,
                         title: 'Електроенергія',
                         color: '#FFD54F',
                         iconCode: 'mdi-lightbulb',

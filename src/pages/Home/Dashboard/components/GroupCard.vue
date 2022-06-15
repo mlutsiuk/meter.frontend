@@ -20,7 +20,7 @@
                     <context-menu-item :route="{ name: 'counters.show', params: { counterId: counter.id } }">
                         Відкрити
                     </context-menu-item>
-                    <context-menu-item icon="mdi-playlist-edit" @click="showCounterEditDialog()">
+                    <context-menu-item icon="mdi-playlist-edit" @click="showCounterEditDialog(counter.id)">
                         Редагувати
                     </context-menu-item>
                     <context-menu-item icon="mdi-chart-bar"
@@ -30,7 +30,7 @@
 
                     <v-divider/>
 
-                    <context-menu-item icon="mdi-trash-can-outline" @click="showCounterDeleteDialog()">
+                    <context-menu-item icon="mdi-trash-can-outline" @click="showCounterDeleteDialog(counter.id)">
                         Видалити
                     </context-menu-item>
                 </template>
@@ -109,11 +109,11 @@ export default {
             });
         },
 
-        showCounterDeleteDialog() {
-            showCounterDeleteDialog({ counterId: this.counterId });
+        showCounterDeleteDialog(counterId) {
+            showCounterDeleteDialog({ counterId });
         },
-        showCounterEditDialog() {
-            showCounterEditDialog({ counterId: this.counterId });
+        showCounterEditDialog(counterId) {
+            showCounterEditDialog({ counterId });
         }
     }
 };
