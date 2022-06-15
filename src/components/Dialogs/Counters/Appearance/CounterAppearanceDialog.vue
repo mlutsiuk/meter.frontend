@@ -13,34 +13,12 @@
                 Зовнішній вигляд лічильника
             </v-card-title>
             <v-card-text class="themed-scrollbar">
-                <!-- TODO: Create component for icons selection -->
                 <v-card class="mb-4" flat outlined>
                     <v-card-text class="d-flex flex-column">
-                        <v-autocomplete
-                            v-model="selectedIconId"
-                            :items="icons"
-                            item-value="id"
-                            item-text="code"
-                            auto-select-first
-                            filled
-                            dense
-                        >
-                            <template #selection="{ item }">
-                                <v-icon class="mr-4" v-text="item.code" :color="color"/>
-                                {{ item.code }}
-                            </template>
-
-                            <template #item="{ item, on, attrs }">
-                                <v-list-item v-on="on" v-bind="attrs">
-                                    <v-list-item-icon>
-                                        <v-icon v-text="item.code" :color="color"/>
-                                    </v-list-item-icon>
-                                    <v-list-item-content>
-                                        <v-list-item-action-text v-text="item.code"/>
-                                    </v-list-item-content>
-                                </v-list-item>
-                            </template>
-                        </v-autocomplete>
+                        <icon-autocomplete
+                            v-model="iconId"
+                            :color="color"
+                        />
 
                         <v-color-picker
                             v-model="color"
@@ -78,11 +56,13 @@ import { DIALOG_SHOW_COUNTER_APPEARANCE } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
 import DialogActions from '@/components/DialogActions';
 import CountersGridCell from '@/pages/Home/Dashboard/components/CountersGridCell';
+import IconAutocomplete from '@/components/Dialogs/Counters/Appearance/IconAutocomplete';
 
 export default {
     name: 'CounterAppearanceDialog',
     mixins: [ dialogMixin ],
     components: {
+        IconAutocomplete,
         CountersGridCell,
         DialogActions
     },
@@ -90,21 +70,7 @@ export default {
         activationEvent: DIALOG_SHOW_COUNTER_APPEARANCE,
 
         title: 'Газ',
-        icons: [
-            {
-                id: 1,
-                code: 'mdi-fire'
-            },
-            {
-                id: 2,
-                code: 'mdi-water'
-            },
-            {
-                id: 3,
-                code: 'mdi-lightbulb'
-            }
-        ],
-        selectedIconId: null,
+        iconId: 1,
 
         color: '#4FC3F7'
     }),
@@ -124,7 +90,7 @@ export default {
     },
     computed: {
         iconCode() {
-            return this.icons.find(icon => icon.id === this.selectedIconId)?.code;
+            return this.$store.getters['icon/find'](this.iconId)?.code ?? 'mdi-clock-outline';
         }
     }
 };
