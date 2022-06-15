@@ -52,6 +52,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
 import { DIALOG_SHOW_GROUP_CREATE } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
 import DialogActions from '@/components/DialogActions';
+import axios from '@/plugins/axios';
 
 export default {
     name: 'GroupCreateDialog',
@@ -73,7 +74,10 @@ export default {
             }
 
             this.loading = true;
-            await new Promise(r => setTimeout(r, 2000));
+
+            await axios.post('/groups', {
+                title: this.title
+            });
             this.loading = false;
 
             await this.close();
