@@ -1,6 +1,6 @@
 <template>
     <v-card
-        @contextmenu.prevent="showContextMenu"
+        @contextmenu="showContextMenu"
         class="counter-grid-cell"
         v-ripple
         outlined

@@ -1,6 +1,6 @@
 <template>
     <v-card
-        @contextmenu.prevent="$refs.contextmenu.show"
+        @contextmenu="showContextMenu"
         class="mb-4"
         outlined
     >
@@ -88,6 +88,10 @@ export default {
         }
     },
     methods: {
+        showContextMenu(event) {
+            this.$refs.contextmenu.show(event);
+        },
+
         showCounterCreateDialog() {
             showCounterCreateDialog({
                 groupId: this.group.id
