@@ -12,7 +12,15 @@
                 class="pr-3"
                 size="24"
             />
-            <span class="font-weight-medium text-truncate pr-1" v-text="title"/>
+            <span
+                class="font-weight-medium text-truncate pr-1"
+                :class="{
+                    'font-italic': title === '',
+                    'text--disabled' : title === ''
+
+                }"
+                v-text="title ? title : 'Назва'"
+            />
         </v-card-text>
 
         <context-menu ref="contextmenu">
@@ -50,6 +58,7 @@ export default {
     methods: {
         showContextMenu(event) {
             if(this.disableContextMenu) {
+                event.preventDefault();
                 return;
             }
             this.$refs.contextmenu.show(event);
