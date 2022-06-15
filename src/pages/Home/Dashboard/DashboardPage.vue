@@ -34,7 +34,7 @@ export default {
     data: () => ({
         groups: [
             {
-                id: 10,
+                id: 1,
                 title: 'Село',
                 ownerName: 'mlutsiuk',
                 counters: [
@@ -83,7 +83,7 @@ export default {
                 ]
             },
             {
-                id: 11,
+                id: 2,
                 title: 'Місто',
                 ownerName: 'AnechkaR',
                 counters: [
@@ -111,7 +111,7 @@ export default {
                 ]
             },
             {
-                id: 12,
+                id: 3,
                 title: 'Квартира',
                 ownerName: 'VanDeMiron',
                 counters: [
