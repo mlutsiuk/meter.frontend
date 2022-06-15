@@ -1,6 +1,5 @@
 <template>
     <div>
-        <counter-appearance-dialog/>
         <counter-create-dialog/>
         <counter-delete-dialog/>
         <counter-edit-dialog/>
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-import CounterAppearanceDialog from './Counters/Appearance/CounterAppearanceDialog';
 import CounterCreateDialog from './Counters/Create/CounterCreateDialog';
 import CounterDeleteDialog from './Counters/Delete/CounterDeleteDialog';
 import CounterEditDialog from './Counters/Edit/CounterEditDialog';
@@ -25,7 +23,6 @@ import GroupShareDialog from './Groups/Share/GroupShareDialog';
 export default {
     name: 'AppDialogs',
     components: {
-        CounterAppearanceDialog,
         CounterCreateDialog,
         CounterDeleteDialog,
         CounterEditDialog,

@@ -1,4 +1,3 @@
-export const DIALOG_SHOW_COUNTER_APPEARANCE = 'dialog-show.counter-appearance';
 export const DIALOG_SHOW_COUNTER_CREATE = 'dialog-show.counter-create';
 export const DIALOG_SHOW_COUNTER_DELETE = 'dialog-show.counter-delete';
 export const DIALOG_SHOW_COUNTER_EDIT = 'dialog-show.counter-edit';

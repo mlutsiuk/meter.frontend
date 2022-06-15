@@ -1,6 +1,5 @@
 import emitter from '@/plugins/emitter';
 import {
-    DIALOG_SHOW_COUNTER_APPEARANCE,
     DIALOG_SHOW_COUNTER_CREATE,
     DIALOG_SHOW_COUNTER_DELETE,
     DIALOG_SHOW_COUNTER_EDIT,
@@ -22,21 +21,6 @@ const showDialog = (event, payload, onConfirm, onReject) => {
         onConfirm,
         onReject
     });
-}
-
-/**
- * @param {Object} payload - Payload to send to dialog component
- * @param {number} payload.counterId - Counter id
- * @param {function} [onConfirm] - Callback to run after dialog confirm
- * @param {function} [onReject] - Callback to run after dialog reject
- */
-export const showCounterAppearanceDialog = (payload, onConfirm, onReject) => {
-    showDialog(
-        DIALOG_SHOW_COUNTER_APPEARANCE,
-        payload,
-        onConfirm,
-        onReject
-    );
 }
 
 /**

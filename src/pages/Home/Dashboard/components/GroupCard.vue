@@ -27,9 +27,6 @@
                                        :route="{ name: 'counters.charts', params: { counterId: counter.id } }">
                         Графіки
                     </context-menu-item>
-                    <context-menu-item icon="mdi-format-color-text" @click="showCounterAppearanceDialog()">
-                        Вигляд
-                    </context-menu-item>
 
                     <v-divider/>
 
@@ -65,7 +62,6 @@ import CountersGridCell from './CountersGridCell';
 import ContextMenu from '@/components/ContextMenu';
 import ContextMenuItem from '@/components/ContextMenuItem';
 import {
-    showCounterAppearanceDialog,
     showCounterCreateDialog,
     showCounterDeleteDialog,
     showCounterEditDialog,
@@ -113,9 +109,6 @@ export default {
             });
         },
 
-        showCounterAppearanceDialog() {
-            showCounterAppearanceDialog({ counterId: this.counterId });
-        },
         showCounterDeleteDialog() {
             showCounterDeleteDialog({ counterId: this.counterId });
         },
