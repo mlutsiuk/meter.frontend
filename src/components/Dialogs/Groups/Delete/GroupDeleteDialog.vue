@@ -31,6 +31,7 @@
 import { DIALOG_SHOW_GROUP_DELETE } from '@/components/Dialogs/events';
 import dialogMixin from '@/components/Dialogs/dialogMixin';
 import DialogActions from '@/components/DialogActions';
+import axios from '@/plugins/axios';
 
 export default {
     name: 'GroupDeleteDialog',
@@ -42,7 +43,7 @@ export default {
     methods: {
         async confirmed() {
             this.loading = true;
-            await new Promise(r => setTimeout(r, 2000));
+            await axios.delete(`/groups/${this.payload.groupId}`);
             this.loading = false;
 
             await this.close();
