@@ -40,7 +40,7 @@
 
         <counters-grid-cell
             :color="color"
-            :icon="iconCode"
+            :icon-id="iconIdSync"
             :title="title"
             disable-context-menu
         />
@@ -98,10 +98,6 @@ export default {
             set(val) {
                 this.$emit('update:icon-id', val);
             }
-        },
-
-        iconCode() {
-            return this.$store.getters['icon/find'](this.iconId)?.code ?? 'mdi-clock-outline';
         }
 
     }

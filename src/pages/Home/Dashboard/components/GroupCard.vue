@@ -13,7 +13,7 @@
                 :key="counter.id"
                 :counter-id="counter.id"
                 :color="counter.color"
-                :icon="counter.iconCode"
+                :icon-id="counter.iconId"
                 :title="counter.title"
             >
                 <template #contextmenu>
@@ -69,6 +69,7 @@ import {
     showGroupEditDialog,
     showGroupShareDialog
 } from '@/components/Dialogs';
+import { PAGE_DASHBOARD_RELOAD } from '@/pages/Home/Dashboard/events';
 
 export default {
     name: 'GroupCard',
@@ -91,29 +92,33 @@ export default {
         showCounterCreateDialog() {
             showCounterCreateDialog({
                 groupId: this.group.id
-            });
+            }, () => this.reloadDashboard());
         },
         showGroupDeleteDialog() {
             showGroupDeleteDialog({
                 groupId: this.group.id
-            });
+            }, () => this.reloadDashboard());
         },
         showGroupEditDialog() {
             showGroupEditDialog({
                 groupId: this.group.id
-            });
+            }, () => this.reloadDashboard());
         },
         showGroupShareDialog() {
             showGroupShareDialog({
                 groupId: this.group.id
-            });
+            }, () => this.reloadDashboard());
         },
 
         showCounterDeleteDialog(counterId) {
-            showCounterDeleteDialog({ counterId });
+            showCounterDeleteDialog({ counterId }, () => this.reloadDashboard());
         },
         showCounterEditDialog(counterId) {
-            showCounterEditDialog({ counterId });
+            showCounterEditDialog({ counterId }, () => this.reloadDashboard());
+        },
+
+        reloadDashboard() {
+            this.$mitt.emit(PAGE_DASHBOARD_RELOAD);
         }
     }
 };

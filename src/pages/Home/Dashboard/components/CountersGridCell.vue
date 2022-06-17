@@ -7,7 +7,7 @@
     >
         <v-card-text class="text-body-2 px-4 py-3 d-flex align-center">
             <v-icon
-                v-text="icon"
+                v-text="iconCode"
                 :color="color"
                 class="pr-3"
                 size="24"
@@ -39,16 +39,16 @@ export default {
     },
     props: {
         color: {
-            default: null,
-            type: String
+            type: String,
+            default: null
         },
-        icon: {
-            required: true,
-            type: String
+        iconId: {
+            type: Number,
+            required: true
         },
         title: {
-            required: true,
-            type: String
+            type: String,
+            required: true
         },
         disableContextMenu: {
             type: Boolean,
@@ -63,6 +63,14 @@ export default {
             }
             this.$refs.contextmenu.show(event);
         }
+    },
+    computed: {
+        iconCode() {
+            return this.$store.getters['icon/find'](this.iconId)?.code ?? 'mdi-clock-outline';
+        }
+    },
+    created() {
+        this.$store.dispatch('icon/fetch');
     }
 };
 </script>

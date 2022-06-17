@@ -1,0 +1,1 @@
+export const PAGE_DASHBOARD_RELOAD = 'page-dashboard.reload';
