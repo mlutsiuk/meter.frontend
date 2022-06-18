@@ -4,6 +4,9 @@
         :items="measures"
         :items-per-page="5"
         class="elevation-1"
+        sort-by="date"
+        must-sort
+        sort-desc
     >
         <template v-slot:[`item.date`]="{ item }">
             {{ formatDate(item.date) }}
