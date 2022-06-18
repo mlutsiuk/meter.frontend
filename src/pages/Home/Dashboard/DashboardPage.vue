@@ -4,7 +4,21 @@
         class="pt-0"
         fluid
     >
+
+        <v-btn
+            v-if="groups.length === 0"
+            @contextmenu.prevent.stop="$mitt.emit('context-menu-hide')"
+            @click="showGroupCreateDialog()"
+            style="min-height: 130px"
+            block
+            outlined
+            text
+        >
+            <v-icon>mdi-plus</v-icon>
+            Додати першу групу
+        </v-btn>
         <group-card
+            v-else
             v-for="group in groups"
             :key="group.id"
             :group="group"
