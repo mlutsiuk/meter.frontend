@@ -9,17 +9,20 @@
         >
             <v-card>
                 <v-card-title class="text-h4">
-                    <v-icon :color="counter.color" v-text="iconCode"/>{{ counter.title }}
+                    <v-icon :color="counter.color" v-text="iconCode"/>
+                    {{ counter.title }}
                 </v-card-title>
                 <v-card-subtitle>
-                    <v-icon v-text="'mdi-account'" class="mx-1" small/>@{{ counter.ownerName }}<br>
-                    <v-icon v-text="'mdi-home-group'" class="mx-1" small/>{{ counter.groupTitle }}
+                    <v-icon v-text="'mdi-account'" class="mx-1" small/>
+                    @{{ ownerName }}<br>
+                    <v-icon v-text="'mdi-home-group'" class="mx-1" small/>
+                    {{ groupTitle }}
                 </v-card-subtitle>
                 <v-card-text>
                     <v-divider/>
 
                     <measure-create-form
-                        @created="reload()"
+                        @created="loadMeasures()"
                         :counter-id="counterId"
                         class="mt-3"
                     />
@@ -33,32 +36,18 @@
 </template>
 
 <script>
-import MeasuresDataTable from '@/pages/Home/CounterShow/components/MeasuresDataTable';
-import MeasureCreateForm from '@/pages/Home/CounterShow/components/MeasureCreateForm';
+import MeasuresDataTable from './components/MeasuresDataTable';
+import MeasureCreateForm from './components/MeasureCreateForm';
 import axios from '@/plugins/axios';
+
 export default {
     name: 'CounterShowPage',
     components: { MeasureCreateForm, MeasuresDataTable },
     data: () => ({
         loading: false,
 
-        measures: [
-            {
-                "id": 1,
-                "date": "2022-06-25T17:40:46.805",
-                "value": 13145,
-                "counterId": 1
-            }
-        ],
-
-        counter: {
-            id: 3,
-            title: 'Електроенергія',
-            color: '#FFD54F',
-            iconId: 1,
-            groupTitle: 'Квартира',
-            ownerName: 'mlutsiuk'
-        }
+        measures: [],
+        counter: {}
     }),
     computed: {
         iconCode() {
@@ -66,19 +55,28 @@ export default {
         },
         counterId() {
             return parseInt(this.$route.params.counterId);
+        },
+        ownerName() {
+            return this.counter?.group?.owner?.name
+        },
+        groupTitle() {
+            return this.counter?.group?.title;
         }
     },
     methods: {
-        async reload() {
-            // todo: this.measures = await axios.get(`/counters/${ this.counterId }/measures`)
-            this.measures = (await axios.get(`/measures`)).data
+        async loadMeasures() {
+            this.measures = (await axios.get(`/counters/${ this.counterId }/measures`)).data;
+        },
+        async loadCounter() {
+            this.counter = (await axios.get(`/counters/${ this.counterId }`)).data;
         }
     },
     async created() {
         this.$store.dispatch('icon/fetch');
 
         this.loading = true;
-        await this.reload();
+        await this.loadCounter();
+        await this.loadMeasures();
         this.loading = false;
     }
 };
