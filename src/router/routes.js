@@ -1,10 +1,13 @@
 import {
-    DashboardPage, DevelopmentPage,
+    DashboardPage,
+    DevelopmentPage,
     HomePage,
     LoginPage,
     NonImplemented,
-    NotFoundPage, SnackbarMessagesPage
+    NotFoundPage,
+    SnackbarMessagesPage
 } from '@/pages';
+import CounterShowPage from '@/pages/Home/CounterShow/CounterShowPage';
 
 export default [
     {
@@ -30,7 +33,7 @@ export default [
             {
                 path: 'counters/:counterId',
                 name: 'counters.show',
-                component: NonImplemented
+                component: CounterShowPage
             },
             {
                 path: 'counters/:counterId/charts',
