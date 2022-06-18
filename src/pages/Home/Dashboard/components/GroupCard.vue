@@ -6,7 +6,7 @@
     >
         <v-card-title class="group-card-title" v-text="group.title"/>
 
-        <v-card-text class="counters-grid">
+        <v-card-text v-if="group.counters.length > 0" class="counters-grid">
             <counters-grid-cell
                 @dblclick.native="$router.push({ name: 'counters.show', params: { counterId: counter.id } })"
                 v-for="counter in group.counters"
@@ -35,6 +35,20 @@
                     </context-menu-item>
                 </template>
             </counters-grid-cell>
+        </v-card-text>
+        <v-card-text
+            v-else
+        >
+            <v-btn
+                @contextmenu.prevent.stop="$mitt.emit('context-menu-hide')"
+                @click="showCounterCreateDialog()"
+                style="min-height: 50px"
+                block
+                text
+            >
+                <v-icon>mdi-plus</v-icon>
+                Додати перший лічильник
+            </v-btn>
         </v-card-text>
 
         <context-menu ref="contextmenu">
