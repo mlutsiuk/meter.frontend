@@ -1,7 +1,7 @@
 <template>
     <v-card
         @contextmenu="showContextMenu"
-        class="counter-grid-cell"
+        class="counter-grid-cell d-flex"
         v-ripple
         outlined
     >
@@ -12,15 +12,22 @@
                 class="pr-3"
                 size="24"
             />
-            <span
-                class="font-weight-medium text-truncate pr-1"
-                :class="{
-                    'font-italic': title === '',
-                    'text--disabled' : title === ''
+            <div class="d-flex flex-column">
+                <div
+                    class="font-weight-medium text--primary text-truncate pr-1"
+                    :class="{
+                        'font-italic': title === '',
+                        'text--disabled' : title === ''
 
-                }"
-                v-text="title ? title : 'Назва'"
-            />
+                    }"
+                    v-text="title ? title : 'Назва'"
+                />
+                <div
+                    v-if="lastMeasure"
+                    v-text="lastMeasure"
+                    class="text-subtitle-2 text--secondary latest-measure-value-text"
+                />
+            </div>
         </v-card-text>
 
         <context-menu ref="contextmenu">
@@ -53,11 +60,15 @@ export default {
         disableContextMenu: {
             type: Boolean,
             default: false
+        },
+        lastMeasure: {
+            type: Number,
+            default: null
         }
     },
     methods: {
         showContextMenu(event) {
-            if(this.disableContextMenu) {
+            if (this.disableContextMenu) {
                 event.preventDefault();
                 return;
             }
@@ -79,5 +90,8 @@ export default {
 .counter-grid-cell {
     border-color: var(--v-secondary-base);
     user-select: none;
+}
+.latest-measure-value-text {
+    line-height: 1.2;
 }
 </style>
