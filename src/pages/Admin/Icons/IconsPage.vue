@@ -6,16 +6,22 @@
             </v-card-title>
 
             <v-card-text>
-                <icon-create-form/>
+                <icon-create-form @created="$refs.list.reload()"/>
+                <v-divider/>
+
+                <icons-table ref="list"/>
             </v-card-text>
         </v-card>
     </v-container>
 </template>
 
 <script>
-import IconCreateForm from '@/pages/Admin/Icons/components/IconCreateForm';
+import IconCreateForm from './components/IconCreateForm';
+import IconsTable from './components/IconsTable';
+
 export default {
     name: 'IconsPage',
-    components: { IconCreateForm }
+    components: { IconsTable, IconCreateForm },
+
 };
 </script>
