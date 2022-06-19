@@ -15,7 +15,7 @@
                 :color="counter.color"
                 :icon-id="counter.iconId"
                 :title="counter.title"
-                :last-measure="counter.lastMeasure ? counter.lastMeasure.value : null"
+                :last-measure="counter.lastMeasure?.value"
             >
                 <template #contextmenu>
                     <context-menu-item :route="{ name: 'counters.show', params: { counterId: counter.id } }">

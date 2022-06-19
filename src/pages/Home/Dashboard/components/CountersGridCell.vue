@@ -20,7 +20,7 @@
                         'text--disabled' : title === ''
 
                     }"
-                    v-text="title ? title : 'Назва'"
+                    v-text="title ?? 'Назва'"
                 />
                 <div
                     v-if="lastMeasure"
