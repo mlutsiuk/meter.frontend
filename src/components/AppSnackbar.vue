@@ -29,7 +29,9 @@ export default {
             active: false,
             color: 'error',
             text: 'Hello!'
-        }
+        },
+        timeout: null,
+        timeoutDuration: 6000
     }),
     methods: {
         showSnackbar({ text, color }) {
@@ -48,7 +50,16 @@ export default {
         showNextMessage() {
             this.showSnackbar(this.nextMessage);
 
+            this.startCloseTimeout();
+
             this.$store.commit('message/shift');
+        },
+        startCloseTimeout() {
+            clearTimeout(this.timeout);
+
+            this.timeout = setTimeout(() => {
+                this.closeSnackbar();
+            }, this.timeoutDuration);
         }
     },
     computed: {
@@ -68,7 +79,3 @@ export default {
     }
 };
 </script>
-
-<style scoped>
-
-</style>
