@@ -1,4 +1,7 @@
 import {
+    CounterChartsPage,
+    CounterPage,
+    CounterShowPage,
     DashboardPage,
     DevelopmentPage,
     HomePage,
@@ -7,7 +10,6 @@ import {
     NotFoundPage,
     SnackbarMessagesPage
 } from '@/pages';
-import CounterShowPage from '@/pages/Home/CounterShow/CounterShowPage';
 
 export default [
     {
@@ -24,21 +26,24 @@ export default [
                 name: 'dashboard',
                 component: DashboardPage
             },
-            {
-                path: 'groups/:groupId',
-                name: 'groups.show',
-                component: NonImplemented
-            },
 
             {
-                path: 'counters/:counterId',
-                name: 'counters.show',
-                component: CounterShowPage
-            },
-            {
-                path: 'counters/:counterId/charts',
-                name: 'counters.charts',
-                component: NonImplemented
+                path: 'counters/:counterId(\\d+)',
+                component: CounterPage,
+                children: [
+                    {
+                        path: '',
+                        name: 'counters.show',
+                        component: CounterShowPage,
+                        props: route => ({ counterId: Number.parseInt(route.params.counterId, 10) })
+                    },
+                    {
+                        path: 'charts',
+                        name: 'counters.charts',
+                        component: CounterChartsPage,
+                        props: route => ({ counterId: Number.parseInt(route.params.counterId, 10) })
+                    }
+                ]
             }
         ]
     },

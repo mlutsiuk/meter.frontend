@@ -21,14 +21,7 @@
                 <v-card-text>
                     <v-divider/>
 
-                    <measure-create-form
-                        @created="loadMeasures()"
-                        :counter-id="counterId"
-                        class="mt-3"
-                    />
-                    <measures-data-table
-                        :measures="measures"
-                    />
+                    <page-child/>
                 </v-card-text>
             </v-card>
         </v-skeleton-loader>
@@ -36,17 +29,15 @@
 </template>
 
 <script>
-import MeasuresDataTable from './components/MeasuresDataTable';
-import MeasureCreateForm from './components/MeasureCreateForm';
 import axios from '@/plugins/axios';
+import PageChild from '@/pages/components/PageChild';
 
 export default {
-    name: 'CounterShowPage',
-    components: { MeasureCreateForm, MeasuresDataTable },
+    name: 'CounterPage',
+    components: { PageChild },
     data: () => ({
         loading: false,
 
-        measures: [],
         counter: {}
     }),
     computed: {
@@ -64,9 +55,6 @@ export default {
         }
     },
     methods: {
-        async loadMeasures() {
-            this.measures = (await axios.get(`/counters/${ this.counterId }/measures`)).data;
-        },
         async loadCounter() {
             this.counter = (await axios.get(`/counters/${ this.counterId }`)).data;
         }
@@ -76,7 +64,6 @@ export default {
 
         this.loading = true;
         await this.loadCounter();
-        await this.loadMeasures();
         this.loading = false;
     }
 };

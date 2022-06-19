@@ -43,7 +43,7 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
-import DatepickerDropdown from './DatepickerDropdown';
+import DatepickerDropdown from '@/components/DatepickerDropdown';
 import dayjs from 'dayjs';
 import axios from '@/plugins/axios';
 
