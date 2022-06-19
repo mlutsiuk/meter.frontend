@@ -1,13 +1,26 @@
 <template>
-    <v-container fluid>
-        <measures-chart-control
-            :min-date.sync="minDate"
-            :max-date.sync="maxDate"
-        />
+    <v-container fluid class="px-0">
+        <v-btn
+            v-if="measures.length === 0"
+            @click="$router.push({ name: 'counters.show', params: { counterId } })"
+            style="min-height: 100px"
+            block
+            text
+        >
+            <v-icon>mdi-plus</v-icon>
+            Записи відсутні, створіть перший на сторінці лічильника
+        </v-btn>
 
-        <measures-chart
-            :measures="constrainedMeasures"
-        />
+        <div v-else>
+            <measures-chart-control
+                :min-date.sync="minDate"
+                :max-date.sync="maxDate"
+            />
+
+            <measures-chart
+                :measures="constrainedMeasures"
+            />
+        </div>
     </v-container>
 </template>
 
