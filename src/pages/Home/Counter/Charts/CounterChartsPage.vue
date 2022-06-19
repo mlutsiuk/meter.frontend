@@ -1,26 +1,28 @@
 <template>
     <v-container fluid class="px-0">
-        <v-btn
-            v-if="measures.length === 0"
-            @click="$router.push({ name: 'counters.show', params: { counterId } })"
-            style="min-height: 100px"
-            block
-            text
-        >
-            <v-icon>mdi-plus</v-icon>
-            Записи відсутні, створіть перший на сторінці лічильника
-        </v-btn>
+        <v-skeleton-loader :loading="loading" type="image">
+            <v-btn
+                v-if="measures.length === 0"
+                @click="$router.push({ name: 'counters.show', params: { counterId } })"
+                style="min-height: 100px"
+                block
+                text
+            >
+                <v-icon>mdi-plus</v-icon>
+                Записи відсутні, створіть перший на сторінці лічильника
+            </v-btn>
 
-        <div v-else>
-            <measures-chart-control
-                :min-date.sync="minDate"
-                :max-date.sync="maxDate"
-            />
+            <div v-else>
+                <measures-chart-control
+                    :min-date.sync="minDate"
+                    :max-date.sync="maxDate"
+                />
 
-            <measures-chart
-                :measures="constrainedMeasures"
-            />
-        </div>
+                <measures-chart
+                    :measures="constrainedMeasures"
+                />
+            </div>
+        </v-skeleton-loader>
     </v-container>
 </template>
 
@@ -43,6 +45,7 @@ export default {
         }
     },
     data: () => ({
+        loading: false,
         measures: [],
 
         minDate: null,
@@ -67,6 +70,7 @@ export default {
     },
     methods: {
         async loadMeasures() {
+            this.loading = true;
             let measures = (await axios.get(`/counters/${ this.counterId }/measures`)).data;
 
             measures.sort(function (a, b) {
@@ -74,6 +78,7 @@ export default {
             });
 
             this.measures = measures;
+            this.loading = false;
         }
     },
     async created() {

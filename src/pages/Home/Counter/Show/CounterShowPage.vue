@@ -7,6 +7,7 @@
         />
         <measures-data-table
             :measures="measures"
+            :loading="loading"
         />
     </div>
 </template>
@@ -29,11 +30,14 @@ export default {
         }
     },
     data: () => ({
-        measures: []
+        measures: [],
+        loading: false
     }),
     methods: {
         async loadMeasures() {
+            this.loading = true;
             this.measures = (await axios.get(`/counters/${ this.counterId }/measures`)).data;
+            this.loading = false;
         }
     },
     async created() {

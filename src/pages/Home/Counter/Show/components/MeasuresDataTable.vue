@@ -3,6 +3,7 @@
         :headers="headers"
         :items="measures"
         :items-per-page="5"
+        :loading="loading"
         class="elevation-1"
         sort-by="date"
         must-sort
@@ -23,6 +24,10 @@ export default {
         measures: {
             type: Array,
             required: true
+        },
+        loading: {
+            type: Boolean,
+            default: false
         }
     },
     data: () => ({

@@ -5,7 +5,7 @@
     >
         <v-skeleton-loader
             :loading="loading"
-            type="card-heading, divider, table"
+            type="card-heading, divider, image"
         >
             <v-card>
                 <v-card-title class="text-h4">
