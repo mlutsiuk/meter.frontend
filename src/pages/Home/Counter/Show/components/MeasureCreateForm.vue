@@ -68,7 +68,6 @@ export default {
         resetForm() {
             this.value = null;
             this.date = dayjs().toISOString();
-            this.$refs.form.reset();
         },
         async create() {
             if (!this.$refs.form.validate()) {
@@ -82,6 +81,7 @@ export default {
             });
 
             this.resetForm();
+            this.$refs.form.reset();
 
             this.$store.commit('message/push', {
                 text: 'Додано',
