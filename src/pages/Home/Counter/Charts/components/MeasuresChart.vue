@@ -86,6 +86,9 @@ export default {
         measures() {
             this.resetMinMax();
         }
+    },
+    created() {
+        this.resetMinMax();
     }
 };
 </script>
