@@ -24,7 +24,8 @@ import AdminNavigation from './components/AdminNavigation';
 
 export default {
     name: 'AdminPage',
-    components: { AdminNavigation, PageChild }
+    components: { AdminNavigation, PageChild },
+    middleware: 'role:admin',
 };
 </script>
 
