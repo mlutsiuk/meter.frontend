@@ -1,6 +1,6 @@
 <template>
     <v-menu
-        :close-on-content-click="false"
+        close-on-content-click
         offset-y
         bottom
     >
@@ -10,13 +10,17 @@
                 v-bind="attrs"
             >
                 <user-avatar
-                    :name="name"
+                    :name="$store.getters['auth/name'] ?? '?'"
                     :avatar="$store.getters['auth/avatar']"
                 />
             </div>
         </template>
 
         <v-list>
+            <v-list-item v-if="$store.getters['auth/isAdmin']" @click="$router.push({ name: 'admin' })">
+                <v-list-item-title>Адміністрування</v-list-item-title>
+            </v-list-item>
+
             <v-list-item @click="visitSetting()">
                 <v-list-item-title>Налаштування</v-list-item-title>
             </v-list-item>
@@ -49,18 +53,6 @@ export default {
             await this.$store.dispatch('auth/logout');
             await this.$router.push({ name: 'login' });
         }
-    },
-    computed: {
-        name() {
-            return this.$store.getters['auth/name'] ?? '?';
-        },
-        avatar() {
-            return this.$store.getters['auth/avatar'];
-        }
     }
 };
 </script>
-
-<style scoped>
-
-</style>
