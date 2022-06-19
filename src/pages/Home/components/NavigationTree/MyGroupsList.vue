@@ -38,7 +38,7 @@
 
                 <v-list-item-content>
                     <v-list-item-title v-text="counter.title"/>
-                    <v-list-item-subtitle v-if="counter.latestValue" v-text="counter.latestValue"/>
+                    <v-list-item-subtitle v-if="counter.lastMeasure" v-text="counter.lastMeasure?.value"/>
                 </v-list-item-content>
             </v-list-item>
         </v-list-group>
