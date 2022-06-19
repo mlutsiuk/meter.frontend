@@ -62,9 +62,14 @@ export default {
     },
     data: () => ({
         value: null,
-        date: dayjs().toISOString()
+        date: null
     }),
     methods: {
+        resetForm() {
+            this.value = null;
+            this.date = dayjs().toISOString();
+            this.$refs.form.reset();
+        },
         async create() {
             if (!this.$refs.form.validate()) {
                 return;
@@ -76,13 +81,18 @@ export default {
                 value: this.value
             });
 
+            this.resetForm();
+
             this.$store.commit('message/push', {
                 text: 'Додано',
                 color: 'success'
-            })
+            });
 
             this.$emit('created');
         }
+    },
+    created() {
+        this.resetForm();
     }
 };
 </script>
