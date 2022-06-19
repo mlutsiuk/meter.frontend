@@ -8,5 +8,9 @@ export { default as CounterShowPage } from './Home/Counter/Show/CounterShowPage'
 export { default as CounterChartsPage } from './Home/Counter/Charts/CounterChartsPage';
 
 
+export { default as AdminPage } from './Admin/AdminPage';
+export { default as IconsPage } from './Admin/Icons/IconsPage';
+
+
 export { default as DevelopmentPage } from './Development/DevelopmentPage';
 export { default as SnackbarMessagesPage } from './Development/SnackbarMessages/SnackbarMessagesPage';

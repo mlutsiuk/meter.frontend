@@ -1,10 +1,12 @@
 import {
+    AdminPage,
     CounterChartsPage,
     CounterPage,
     CounterShowPage,
     DashboardPage,
     DevelopmentPage,
     HomePage,
+    IconsPage,
     LoginPage,
     NonImplemented,
     NotFoundPage,
@@ -44,6 +46,22 @@ export default [
                         props: route => ({ counterId: Number.parseInt(route.params.counterId, 10) })
                     }
                 ]
+            }
+        ]
+    },
+    {
+        path: '/admin',
+        component: AdminPage,
+        children: [
+            {
+                path: '',
+                name: 'admin',
+                redirect: { name: 'admin.icons' }
+            },
+            {
+                path: 'icons',
+                name: 'admin.icons',
+                component: IconsPage
             }
         ]
     },
