@@ -1,5 +1,6 @@
 <template>
     <v-container
+        @contextmenu.prevent
         class="pt-0"
         fluid
     >
@@ -11,6 +12,25 @@
                 <v-card-title class="text-h4">
                     <v-icon :color="counter.color" v-text="iconCode"/>
                     {{ counter.title }}
+                    <v-spacer/>
+                    <div>
+                        <v-btn
+                            v-if="$route.name !== 'counters.show'"
+                            @click="$router.push({ name: 'counters.show', params: { counterId: counter.id } })"
+                            large
+                            icon
+                        >
+                            <v-icon>mdi-format-list-bulleted</v-icon>
+                        </v-btn>
+                        <v-btn
+                            v-if="$route.name !== 'counters.charts'"
+                            @click="$router.push({ name: 'counters.charts', params: { counterId: counter.id } })"
+                            large
+                            icon
+                        >
+                            <v-icon>mdi-chart-bar</v-icon>
+                        </v-btn>
+                    </div>
                 </v-card-title>
                 <v-card-subtitle>
                     <v-icon v-text="'mdi-account'" class="mx-1" small/>
@@ -48,7 +68,7 @@ export default {
             return parseInt(this.$route.params.counterId);
         },
         ownerName() {
-            return this.counter?.group?.owner?.name
+            return this.counter?.group?.owner?.name;
         },
         groupTitle() {
             return this.counter?.group?.title;
