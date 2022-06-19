@@ -20,6 +20,9 @@
             </template>
 
             <v-list-item v-if="group.counters.length === 0">
+                <v-list-item-icon>
+                    <v-icon>mdi-folder-question</v-icon>
+                </v-list-item-icon>
                 <v-list-item-content>
                     <v-list-item-title>Група порожня</v-list-item-title>
                 </v-list-item-content>
