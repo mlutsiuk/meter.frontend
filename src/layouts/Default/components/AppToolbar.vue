@@ -13,7 +13,10 @@
 
         <v-spacer/>
 
-        <v-btn icon>
+        <v-btn
+            @click="openSearch()"
+            icon
+        >
             <v-icon>mdi-magnify</v-icon>
         </v-btn>
         <theme-change-button/>
@@ -34,7 +37,15 @@ export default {
     },
     data: () => ({
         appName: process.env.VUE_APP_NAME
-    })
+    }),
+    methods: {
+        openSearch() {
+            this.$store.commit('message/push', {
+                text: 'Наразі це не реалізовано',
+                color: 'accent'
+            });
+        }
+    }
 };
 </script>
 
