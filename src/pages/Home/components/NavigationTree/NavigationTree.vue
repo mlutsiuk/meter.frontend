@@ -9,7 +9,7 @@
                     <v-icon>mdi-home</v-icon>
                 </v-list-item-icon>
 
-                <v-list-item-title>Home</v-list-item-title>
+                <v-list-item-title>Головна</v-list-item-title>
             </v-list-item>
 
             <my-groups-list/>
