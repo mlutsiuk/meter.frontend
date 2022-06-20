@@ -1,6 +1,7 @@
 <template>
     <v-btn
         @click="changeTheme()"
+        :fab="fab"
         class="mx-4"
         icon
     >
@@ -15,9 +16,10 @@ import Cookies from 'js-cookie';
 
 export default {
     name: 'ThemeChangeButton',
-    methods: {
-        changeTheme() {
-            this.dark = !this.dark;
+    props: {
+        fab: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
@@ -32,6 +34,11 @@ export default {
         },
         icon() {
             return this.dark ? 'mdi-weather-night' : 'mdi-white-balance-sunny';
+        }
+    },
+    methods: {
+        changeTheme() {
+            this.dark = !this.dark;
         }
     }
 };
