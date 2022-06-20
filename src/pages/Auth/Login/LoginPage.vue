@@ -58,7 +58,7 @@
                     </validation-provider>
                 </validation-observer>
             </v-card-text>
-            <v-card-actions class="pb-6">
+            <v-card-actions class="pb-4 d-flex flex-column">
                 <v-btn
                     @click="login()"
                     :loading="loading"
@@ -69,6 +69,13 @@
                 >
                     Вхід
                 </v-btn>
+
+                <div
+                    @click="$router.push({ name: 'registration' })"
+                    class="mt-2 text-subtitle-2 grey--text cursor-pointer"
+                >
+                    Зареєструватися
+                </div>
             </v-card-actions>
         </v-card>
     </div>
@@ -154,5 +161,8 @@ export default {
 <style scoped>
 .app-title {
     font-family: Nunito, sans-serif !important;
+}
+.cursor-pointer {
+    cursor: pointer;
 }
 </style>
