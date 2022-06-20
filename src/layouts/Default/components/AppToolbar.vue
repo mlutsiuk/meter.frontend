@@ -10,12 +10,11 @@
             </v-icon>
         </v-btn>
         <v-toolbar-title class="app-toolbar-title ml-n2">{{ appName }}</v-toolbar-title>
-        <v-spacer></v-spacer>
+
+        <v-spacer/>
+
         <v-btn icon>
             <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-        <v-btn icon>
-            <v-icon>mdi-heart</v-icon>
         </v-btn>
         <theme-change-button/>
 
