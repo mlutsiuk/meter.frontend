@@ -10,6 +10,7 @@ import {
     LoginPage,
     NonImplemented,
     NotFoundPage,
+    RegistrationPage,
     SnackbarMessagesPage
 } from '@/pages';
 
@@ -18,6 +19,11 @@ export default [
         path: '/login',
         name: 'login',
         component: LoginPage
+    },
+    {
+        path: '/registration',
+        name: 'registration',
+        component: RegistrationPage
     },
     {
         path: '/',

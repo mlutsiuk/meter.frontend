@@ -11,7 +11,7 @@ extend('required', {
     validate(value) {
         return {
             required: true,
-            valid: ['', null, undefined].indexOf(value) === -1
+            valid: [ '', null, undefined ].indexOf(value) === -1
         };
     }
 });
@@ -44,4 +44,16 @@ extend('min_value', {
 extend('numeric', {
     ...numeric,
     message: 'Може містити виключно цифри'
+});
+
+extend('confirm_password', {
+    validate: (value, { original }) => (
+        value === original
+    ),
+    params: [
+        {
+            name: 'original'
+        }
+    ],
+    message: 'Паролі відрізняются'
 });
